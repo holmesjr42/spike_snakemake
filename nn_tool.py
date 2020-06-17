@@ -87,11 +87,11 @@ def lfp_seg(lfp, indt):
 
     rep = np.size(ind[0])
     ind_l = ind[0] * (sr_lfp / 1000)
-    ind_h = ind[1] * (sr_lfp / 1000)
+    ind_h = (ind[1] + 101) * (sr_lfp / 1000)
     for i in range(16):
         for j in range(rep):
             l_seg[i].append(lfp[i][np.int(ind_l[j]):
-                                   np.int(ind_h[j] + 200) + 1])
+                                   np.int(ind_h[j])])
     return l_seg
 
 
@@ -151,8 +151,8 @@ def spect_plot(ax, t, f, sig, images, xticks, yticks):
                    width=0.25)
 
 
-def psth_plot(ax, t, spikes, xticks, yticks, s_max, c_type):
-    '''
+def psth_plot(ax, t, spikes, xticks, yticks, c_type):
+    """
 
     :param ax: axis of a plot/subplo
     :param t: time array
@@ -162,7 +162,7 @@ def psth_plot(ax, t, spikes, xticks, yticks, s_max, c_type):
     :param s_max: maximum value of the spike number in all 16 channels
     :param c_type: 'nn' or 'wn' to choose the line color
     :return:
-    '''
+    """
 
     if c_type == 'nn_3_1' or c_type == 'nn_1_1':
         c_line = 'dodgerblue'
@@ -175,4 +175,45 @@ def psth_plot(ax, t, spikes, xticks, yticks, s_max, c_type):
     ax.plot(t / 1000, spikes, lw=0.5, color=c_line)
     ax.set_yticks(yticks)
     ax.set_xticks(xticks)
-    ax.set_ylim([0, s_max])
+
+
+def lfp_plot(ax, t, lfp, xticks, yticks, c_type):
+    """
+    :param ax: axis of a plot/subplo
+    :param t: time array
+    :param lfp: averaged lfp
+    :param xticks: array for the xtick
+    :param yticks: array for the ytick
+    :param c_type: 'nn' or 'wn' to choose the line color
+    :return:
+    """
+
+    if c_type == 'nn_3_1' or c_type == 'nn_1_1':
+        c_line = 'dodgerblue'
+    elif c_type == 'nn_wn_3_1' or c_type == 'nn_wn_1_1':
+        c_line = 'tab:orange'
+    else:
+        print('something is wrong')
+        sys.exit()
+
+    ax.plot(t / 1000, lfp, lw=0.5, color=c_line)
+    ax.set_yticks(yticks)
+    ax.set_xticks(xticks)
+
+
+def setups(cond):
+    if cond == 'nn_3_1':
+        names = ['nn_3_1', 'nn_wn_3_1']
+        tmax = 4100
+        nn_title = 'NN On 3 s/ Off 1 s'
+        wn_title = 'WN On 3 s/ Off 1 s'
+
+    elif cond == 'nn_1_1':
+        names = ['nn_1_1', 'nn_wn_1_1']
+        tmax = 2100
+        nn_title = 'NN On 1 s/ Off 1 s'
+        wn_title = 'WN On 1 s/ Off 1 s'
+    else:
+        print('something is wrong. check nn31/11_psth_lfp_plot.py')
+        sys.exit()
+    return names, tmax, nn_title, wn_title

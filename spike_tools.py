@@ -81,8 +81,9 @@ def lfp_strf(p_info, lfp, twi=19, twf=50):
         lfp_f[i] = [[] for _ in range(49)]
         for j in range(49):
             for k in range(len(p_info[j]) - 1):
-                cut = int(np.round(p_info[j][k] * (sr_lfp/1000))) - 1
-                lfp_f[i][j].append(lfp[i][cut:(cut + 101)])
+                cut_l = int(np.round(p_info[j][k] * (sr_lfp/1000)))
+                cut_h = int(np.round((p_info[j][k] + 101) * (sr_lfp/1000)))
+                lfp_f[i][j].append(lfp[i][cut_l:cut_h])
 
             lfp_m[i][j] = np.append(lfp_m[i][j],  np.mean(lfp_f[i][j], 0))
             avg[i] = np.append(avg[i], np.mean(lfp_m[i][j][twi:twf]))

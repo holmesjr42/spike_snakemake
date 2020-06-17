@@ -6,6 +6,7 @@ import notch_gap_params as p_tool
 
 file_path = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/'
 param_path = '/home/bhc/codes/spikes_classics/parameters/'
+sr_lfp = 1061.5
 
 
 class Commonfeat:
@@ -117,7 +118,7 @@ class Setup:
                   '800', '900', '1000', '1100', '1200', '1300', '1400', '1500']
 
         l_color = ['#e6e6e6', '#4e69ab']
-
+        cb = '#e6e6e6'
         cc = 0
         depth = []
 
@@ -132,10 +133,15 @@ class Setup:
             print('ni nun ong-i-gumung')
 
         return [self.mode, self.yl, self.cond, self.cond2, self.nb, self.ch,
-                depth, self.ws, self.hs, self.ccmap, cc]
+                depth, self.ws, self.hs, self.ccmap, cc, cb]
 
 
 class Nn:
     with open('/home/bhc/codes/spike_snakemake/parameters/nn_index.pk',
               'rb') as a:
         nn_i = pickle.load(a)
+
+
+def lfp_p(times):
+    t_point = (np.array(times) * sr_lfp / 1000).astype(int)
+    return t_point

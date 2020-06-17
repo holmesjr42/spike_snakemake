@@ -42,7 +42,7 @@ def nn_3_1(animal):
     data retrieve
     '''
     # lfp
-    with h5py.File(file_path + animal + '_lfp_fil.hdf5', 'r') as h_5:
+    with h5py.File(file_path + 'lfp_fil/' + animal + '_lfp_fil.hdf5', 'r') as h_5:
         for n in names:
             lfp = h_5[n][0]
             ls = nt.lfp_seg(lfp, n)
@@ -53,7 +53,7 @@ def nn_3_1(animal):
             #                       ])
 
     # spike
-    with h5py.File(file_path + animal + '_tsp.hdf5', 'r') as h_5:
+    with h5py.File(file_path + 'tsp/'  + animal + '_tsp.hdf5', 'r') as h_5:
         for n in names:
             mua = h_5[n][0]
             nn = nt.index_spike(mua)
@@ -210,7 +210,7 @@ def nn_1_1(animal):
     data retrieve
     '''
     # lfp
-    with h5py.File(file_path + animal + '_lfp_fil.hdf5', 'r') as h_5:
+    with h5py.File(file_path + 'lfp_fil/' + animal + '_lfp_fil.hdf5', 'r') as h_5:
         for n in names:
             lfp = h_5[n][0]
             ls = nt.lfp_seg(lfp, n)
@@ -222,7 +222,7 @@ def nn_1_1(animal):
             #                       ])
 
     # spike
-    with h5py.File(file_path + animal + '_tsp.hdf5', 'r') as h_5:
+    with h5py.File(file_path + 'tsp/' + animal + '_tsp.hdf5', 'r') as h_5:
         for n in names:
             mua = h_5[n][0]
             nn = nt.index_spike(mua)
