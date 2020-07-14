@@ -253,8 +253,8 @@ def norm_color(img, type, ratio=0.45):
         vmax = max(ims.get_array().max() for ims in img) * ratio
         norm = colors.Normalize(vmin=vmin, vmax=vmax)
     elif type == 'csd':
-        vmax = max(max(img.get_array().max() for img in pc_img), np.abs(min(
-            img.get_array().min() for img in pc_img))) * ratio
+        vmax = max(max(img.get_array().max() for ims in img), np.abs(min(
+            img.get_array().min() for ims in img))) * ratio
         vmin = (-1) * vmax
         norm = colors.Normalize(vmin=vmin, vmax=vmax)
     else:

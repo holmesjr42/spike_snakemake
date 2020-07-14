@@ -1,8 +1,4 @@
-import scipy.signal as scig
-import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-import pickle
 
 
 def o_cut(cf, option='norm'):

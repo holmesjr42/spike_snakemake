@@ -5,7 +5,7 @@ import pickle
 import notch_gap_params as p_tool
 
 file_path = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/'
-param_path = '/home/bhc/codes/spikes_classics/parameters/'
+param_path = '/home/bhc/codes/spike_snakemake/parameters/'
 sr_lfp = 1061.5
 
 
@@ -32,8 +32,10 @@ class Commonfeat:
          0.87, 1, 1.12, 1.25, 1.37, 1.5])
 
     # best f for each animal
-    bf = [6727, 9513, 8724, 5657, 2828, 7336, 8000]
-
+    bf = [6727, 9514, 8724, 5657, 2828, 7336, 8000]
+    # best f dict
+    bf_dic = {'cr29': 6727, 'cr30': 9514, 'cr31': 8724, 'cr33': 5657,
+              'cr35': 2828, 'cr50': 7336, 'cr79': 8000}
     # activity time window for each animal
     tw = [[12, 46], [10, 41], [10, 41], [10, 41], [10, 38], [10, 31], [10, 41]]
 

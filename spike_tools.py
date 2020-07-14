@@ -13,10 +13,10 @@ spike train
 def index_strf(time_snip):
     mua = []
     for i in range(16):
-        mua.append(np.zeros(181*1000 + 1))
+        mua.append(np.zeros(181 * 1000 + 1))
         for k in range(np.size(time_snip[i])):
             k1 = int(np.round(1000 * time_snip[i][k]))
-            if k1 > 181*1000:
+            if k1 > 181 * 1000:
                 break
             elif k1 > 0:
                 mua[i][k1] = 1
@@ -37,6 +37,7 @@ averaging the number of spikes
    activation time window
 '''
 
+
 def tsp_strf(p_info, mua, twi=19, twf=50):
     tsp_m = [[] for _ in range(16)]
     tsp_f = [[] for _ in range(16)]
@@ -49,8 +50,8 @@ def tsp_strf(p_info, mua, twi=19, twf=50):
                 tsp_f[i][j].append(mua[i][(int(np.floor(p_info[j][k]))):(int(
                     np.floor(p_info[j][k])) + 101)])
 
-            tsp_m[i][j] = np.append(tsp_m[i][j],  np.mean(tsp_f[i][j], 0))
-            avg[i] = np.append(avg[i], np.mean(tsp_m[i][j][twi:twf]))
+            tsp_m[i][j] = np.append(tsp_m[i][j], np.mean(tsp_f[i][j], 0))
+            avg[i] = np.append(avg[i], np.mean(tsp_m[i][j][twi:twf + 1]))
 
     return [tsp_m, avg]
 
@@ -70,8 +71,7 @@ lfp
 '''
 
 
-def lfp_strf(p_info, lfp, twi=19, twf=50):
-
+def lfp_strf(p_info, lfp, tw=100, twi=19, twf=50):
     sr_lfp = 1061.5
     lfp_m = [[] for _ in range(16)]
     lfp_f = [[] for _ in range(16)]
@@ -81,13 +81,14 @@ def lfp_strf(p_info, lfp, twi=19, twf=50):
         lfp_f[i] = [[] for _ in range(49)]
         for j in range(49):
             for k in range(len(p_info[j]) - 1):
-                cut_l = int(np.round(p_info[j][k] * (sr_lfp/1000)))
-                cut_h = int(np.round((p_info[j][k] + 101) * (sr_lfp/1000)))
-                lfp_f[i][j].append(lfp[i][cut_l:cut_h])
 
-            lfp_m[i][j] = np.append(lfp_m[i][j],  np.mean(lfp_f[i][j], 0))
-            avg[i] = np.append(avg[i], np.mean(lfp_m[i][j][twi:twf]))
+                cut_l = int(np.round(p_info[j][k] * (sr_lfp / 1000)))
+                cut_h = int(np.round((p_info[j][k]) * (sr_lfp / 1000) +
+                                 int(tw * sr_lfp / 1000)))
+
+                lfp_f[i][j].append(lfp[i][cut_l:cut_h + 1])
+
+            lfp_m[i][j] = np.append(lfp_m[i][j], np.mean(lfp_f[i][j], axis=0))
+            avg[i] = np.append(avg[i], np.mean(lfp_m[i][j][twi:twf + 1]))
 
     return [lfp_m, avg]
-
-

@@ -8,7 +8,7 @@ import numpy as np
 
 '''
 This is for having averaged LFP signal for a single animal data with 3 s/ 1 
-s NN/WN condition
+s 1 s/ 1 s NN/WN condition
 '''
 
 d_lfp = snakemake.input[0]

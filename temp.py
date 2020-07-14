@@ -1,15 +1,16 @@
 import icsd
 import numpy as np
 import spike_tools as st
-import nn_tool as nt
+# import nn_tool as nt
 import parameters as pm
-import pickle
-import matplotlib.pyplot as plt
-from matplotlib import colors
-from matplotlib import ticker
-import seaborn as sns
-import quantities as pq
-import neo.core
+# import pickle
+# import matplotlib.pyplot as plt
+# from matplotlib import colors
+# from matplotlib import ticker
+# import seaborn as sns
+# import quantities as pq
+# import neo.core
+
 # import pandas as pd
 # used icsd.py to get raw csd. If you use estimated_csd or elephant,
 # which gives you the output of estimated_csd, you will have filtered csd
@@ -97,13 +98,16 @@ import neo.core
 # plt.plot(np.arange(4353), std17[10], color='orange')
 # plt.show()
 
-from spectrum import *
+# from spectrum import *
+#
+# data = data_cosine(N=2048, A=0.1, sampling=1024, freq=200)
+# # If you already have the DPSS windows
+# [tapers, eigen] = dpss(2048, 2.5, 4)
+# # res = pmtm(data, e=tapers, v=eigen, show=False)
+# # You do not need to compute the DPSS before end
+# # res = pmtm(data, NW=2.5, show=False)
+# res = pmtm(data, NW=2.5, k=4, show=True)
+# print(res[2][0])
 
-data = data_cosine(N=2048, A=0.1, sampling=1024, freq=200)
-# If you already have the DPSS windows
-[tapers, eigen] = dpss(2048, 2.5, 4)
-# res = pmtm(data, e=tapers, v=eigen, show=False)
-# You do not need to compute the DPSS before end
-# res = pmtm(data, NW=2.5, show=False)
-res = pmtm(data, NW=2.5, k=4, show=True)
-print(res[2][0])
+a= np.arange(5)
+print(a)
