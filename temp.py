@@ -1,8 +1,6 @@
-import icsd
 import numpy as np
-import spike_tools as st
+
 # import nn_tool as nt
-import parameters as pm
 # import pickle
 # import matplotlib.pyplot as plt
 # from matplotlib import colors

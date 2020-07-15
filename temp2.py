@@ -1,18 +1,4 @@
-import numpy as np
-import spike_tools as st
-import h5py
-import nn_tool as nt
-import parameters as pm
-import pickle
 import matplotlib.pyplot as plt
-from matplotlib import colors
-from matplotlib import ticker
-import seaborn as sns
-import elephant
-from neo.core import Block, ChannelIndex, AnalogSignal
-import quantities as pq
-import neo
-import pandas as pd
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 # '''
 # This is for a single animal data

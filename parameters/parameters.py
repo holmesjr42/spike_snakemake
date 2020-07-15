@@ -1,8 +1,5 @@
 import numpy as np
-import h5py
-import spike_tools as st
 import pickle
-import notch_gap_params as p_tool
 
 file_path = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/'
 param_path = '/home/bhc/codes/spike_snakemake/parameters/'

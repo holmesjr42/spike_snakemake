@@ -29,41 +29,31 @@ hs = 0.05
 file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
              '/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk'
 
-f_name = file_input.split('/')[-1]
-animal = f_name.split('_')[0]
+# getting animal cr number
+animal = file_input.split('/')[-1].split('_')[0]
 bf = bfs[animal]
-cf = np.round(bf * 2**(-0.5))
-
-if cf == 9513:
-    cf = 9514
-elif cf == 3999:
-    cf = 4000
-else:
-    pass
-
-b_ind = np.where(b_list == cf)[0][0]
-print(b_ind)
+print(bf)
+b_ind = np.where(b_list == bf)[0][0]
 
 # loading file
 with open(file_input, 'rb') as dat:
     datas = pickle.load(dat)
 
-lr = [datas['nnm_lef'], datas['nnm_lef_strf']]  # lfps list
+# lfps  list
+lr = [datas['nnm_3_1'], datas['nnm_wn_3_1'], datas['nnm_3_0_05_strf']]
 
 la = {}  # dict of lfp for nnm condition
 ls = {}  # dict of lfp for strf condition
-
+lw = {}  # dict of lfp for wn condition
 lvl = ['70', '60', '50', '40']  # spl level I'm going to use
 
 for i in lvl:
-    lra = lr[0][i]  # lfp for nnm
-    lrs = lr[1][i]  # lfp for strf
+    lra = [lr[0]['nn'][i], lr[0]['si'][i]]  # lfp for nnm
+    lwa = [lr[1]['nn'][i], lr[1]['si'][i]]
+    lrs = lr[2][i]  # lfp for strf
 
-    # if not lra.any() or not lrs.any():
-    #     pass
-    #
-    # else:
     la[i] = []
+    lw[i] = []
     ls[i] = []
     for j in range(len(lrs)):
         la[i].append(lra[j][b_ind])

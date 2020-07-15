@@ -1,9 +1,18 @@
+import os,sys,inspect
+import sys
+sys.path.insert(1, os.path.realpath(os.path.pardir))
+print(os.path.realpath('nnm_lfp_session_average.py'))
 import numpy as np
 import h5py
-import spike_tools as st
+from tools import spike_tools as st
 import pickle
-import parameters as pm
-import sys
+from parameters import parameters as pm
+sys.path.pop(0)
+
+'''
+This is to average the lfp sessions of nnm conditions for csd. Possibly can 
+be used for heatmap analysis
+'''
 
 '''
 setup

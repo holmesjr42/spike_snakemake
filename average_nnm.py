@@ -1,11 +1,11 @@
 import numpy as np
 import h5py
-import spike_tools as st
 import pickle
-import notch_gap_params as p_tool
-import parameters as pm
+from tools import notch_gap_params as p_tool, spike_tools as st
+from parameters import parameters as pm
 import sys
 '''
+This is from spike_classics
 setup
 '''
 # classes

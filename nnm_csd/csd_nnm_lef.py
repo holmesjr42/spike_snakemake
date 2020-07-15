@@ -29,17 +29,26 @@ hs = 0.05
 file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
              '/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk'
 
-# getting animal cr number
-animal = file_input.split('/')[-1].split('_')[0]
+f_name = file_input.split('/')[-1]
+animal = f_name.split('_')[0]
 bf = bfs[animal]
-print(bf)
-b_ind = np.where(b_list == bf)[0][0]
+cf = np.round(bf * 2**(-0.5))
+
+if cf == 9513:
+    cf = 9514
+elif cf == 3999:
+    cf = 4000
+else:
+    pass
+
+b_ind = np.where(b_list == cf)[0][0]
+print(b_ind)
 
 # loading file
 with open(file_input, 'rb') as dat:
     datas = pickle.load(dat)
 
-lr = [datas['nnm_3_0'], datas['nnm_3_0_strf']]  # lfps list
+lr = [datas['nnm_lef'], datas['nnm_lef_strf']]  # lfps list
 
 la = {}  # dict of lfp for nnm condition
 ls = {}  # dict of lfp for strf condition
@@ -50,10 +59,6 @@ for i in lvl:
     lra = lr[0][i]  # lfp for nnm
     lrs = lr[1][i]  # lfp for strf
 
-    # if not lra.any() or not lrs.any():
-    #     pass
-    #
-    # else:
     la[i] = []
     ls[i] = []
     for j in range(len(lrs)):

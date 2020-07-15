@@ -11,6 +11,7 @@ import seaborn as sns
 
 '''
 This is for a single animal data
+plots psth and averaged raw lfp in the same figure
 '''
 
 d_lfp = snakemake.input.lfp

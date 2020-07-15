@@ -1,6 +1,6 @@
-import icsd
+from tools import icsd
 import numpy as np
-import parameters as pm
+from parameters import parameters as pm
 import pickle
 import matplotlib.pyplot as plt
 from matplotlib import colors

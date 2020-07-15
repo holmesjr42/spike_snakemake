@@ -8,21 +8,22 @@ from matplotlib import ticker
 import seaborn as sns
 import numpy as np
 
-
 '''
 This is for a single animal data
+plots for raw lfp average and lfp session overlap
 '''
-# file_path = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
-#             '/data/dataset/lfp_fil/'
-# animal = 'cr50_190724_lfp_fil.hdf5'
-# d_lfp = file_path + animal
-d_lfp = snakemake.input[0]
+file_path = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
+            '/data/dataset/lfp_fil/'
+animal = 'cr50_190724_lfp_fil.hdf5'
+d_lfp = file_path + animal
+# d_lfp = snakemake.input[0]
+
 save_p = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data' \
-         '/dataset/image/nn_3_1/'
+         '/dataset/image/nn_1_1/'
 chs = [1, 3, 5, 7, 9, 11, 13, 14]
 
 
-# def nn_3_1(animal):
+
 """
 setup
 """
@@ -34,7 +35,7 @@ color = ['dodgerblue', 'tab:orange']
 ls = {}
 la = {}
 lr = []
-names = ['nn_3_1', 'nn_wn_3_1']
+names = ['nn_1_1', 'nn_wn_1_1']
 maxs = []
 mins = []
 # yticks_p = np.array(
@@ -52,7 +53,6 @@ with h5py.File(d_lfp, 'r') as h_5:
     for n in names:
         lfp = h_5[n][0]
         lst = nt.lfp_seg(lfp, n)
-
         ls[n] = []
         la[n] = []
         for i in range(len(lst)):
@@ -94,7 +94,7 @@ for i in range(len(chs)):
         lsf = ls[ns][p]
         laf = la[ns][p]
         for k in range(len(lsf)):
-            t = np.linspace(0, 4100, num=len(lsf[k]))/1000
+            t = np.linspace(0, 2100, num=len(lsf[k]))/1000
             axl[1].plot(t, lsf[k], alpha=0.3, lw=0.3)
             if k == 0:
                 axl[0].plot(t, laf, lw=0.5, color=color[j])
@@ -103,9 +103,9 @@ for i in range(len(chs)):
         for lj in range(len(axl)):
             ax = axl[lj]
             ax.set_ylim(minf[lj], maxf[lj])
-            ax.set_xlim(-0.1, 4.1)
+            ax.set_xlim(-0.1, 2.1)
         for ij in range(2):
-            for jk in [0.0, 3.0, 4.0]:
+            for jk in [0.0, 1.0, 2.0]:
                 axl[ij].axvline(x=jk, color='#031e57', linestyle='-.', lw=0.3)
 
         if j == 0 and i != len(chs) - 1:
@@ -129,10 +129,10 @@ for i in range(len(chs)):
 '''
 text and axis limit
 '''
-axs[0, 0].set_title('NN On 3 s/ Off 1 s')
-axs[0, 1].set_title('WN On 3 s/ Off 1 s')
-axs[0, 3].set_title('NN On 3 s/ Off 1 s')
-axs[0, 4].set_title('WN On 3 s/ Off 1 s')
+axs[0, 0].set_title('NN On 1 s/ Off 1 s')
+axs[0, 1].set_title('WN On 1 s/ Off 1 s')
+axs[0, 3].set_title('NN On 1 s/ Off 1 s')
+axs[0, 4].set_title('WN On 1 s/ Off 1 s')
 l_fig.text(0.27, 0.05, 'Time [s]', ha='center', va='center', fontsize=15)
 l_fig.text(0.75, 0.05, 'Time [s]', ha='center', va='center', fontsize=15)
 l_fig.text(0.27, 0.95, 'Average', ha='center', va='center', fontsize=15)
@@ -143,8 +143,8 @@ l_fig.text(0.06, 0.5, 'Amplitude [mV]', ha='center', va='center',
            rotation='vertical', fontsize=15)
 
 for i in range(len(chs)):
-    axs[i, 4].text(5, -300, depth[i] + ' $\mu$m',
+    axs[i, 4].text(3, -300, depth[i] + ' $\mu$m',
                    ha='center', va='center', fontsize=10)
 
 
-plt.savefig(save_p + d_lfp[-24:-13] + '_nn_3_1_lfp_s.png', dpi=300)
+plt.savefig('test.png', dpi=300)
