@@ -1,13 +1,11 @@
-import os,sys,inspect
-import sys
-sys.path.insert(1, os.path.realpath(os.path.pardir))
-print(os.path.realpath('nnm_lfp_session_average.py'))
+import os,sys,inspect, pathlib
+sys.path.insert(1, os.path.dirname(os.getcwd()))
 import numpy as np
 import h5py
 from tools import spike_tools as st
 import pickle
 from parameters import parameters as pm
-sys.path.pop(0)
+sys.path.pop(1)
 
 '''
 This is to average the lfp sessions of nnm conditions for csd. Possibly can 
@@ -49,20 +47,21 @@ dst = db['d_strf']  # strf which corresponds to that specific nnm file
 p_type = ['nn', 'si']  # corresponds to dict keys for notched noise and #
 # silence sessions.
 
-s_conds = np.append(nnc.conds, nns.conds[0:2])
+s_conds = nnc.conds + nns.conds[0:2]
 # aaa = animals.index('cr50_190724')
 # print(aaa)
 # dicts
 g_l = {}
+# average of all strf data in an animal
+g_l['a_strf'] = {'70': [], '60': [], '50': [], '40': []}
+sl2 = {'70': [], '60': [], '50': [], '40': []}
+# f_lfp = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
+#         '/data/dataset/lfp_fil/cr35_190403_lfp_fil.hdf5'
 
-f_lfp = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
-        '/data/dataset/lfp_fil/cr35_190403_lfp_fil.hdf5'
-
-# f_lfp = snakemake.input[0]
+f_lfp = snakemake.input[0]
 
 # an = 0  # the number which represents animal name order
-f_part = f_lfp.split('_')[4]  # file name
-f_ani = f_part.split('/')[1]  # cr# of animal
+f_ani = f_lfp.split('/')[-1].split('_')[0]  # cr# of animal
 an = 0  # an is the index of the animal used
 
 for num_a, ani in enumerate(animals):
@@ -81,8 +80,7 @@ with h5py.File(f_lfp, 'r') as l_5:
 
     for cond in s_conds:
         g_l[cond + '_strf'] = {}
-        for i in range(len(acor[cond])):
-            a_l = []
+        for i in range(len(lv)):
             lvl = lv[i]
             g_l[cond + '_strf'][lvl] = []
 
@@ -97,11 +95,10 @@ with h5py.File(f_lfp, 'r') as l_5:
                 llfp = np.array(lfps[0])
                 g_l[cond + '_strf'][lvl].extend(llfp)
                 print(np.shape(g_l[cond + '_strf'][lvl]))
-            print(f'{cond}:{lvl} is finished')
+            print(f'{cond}_strf:{lvl} is finished')
         print(f'{cond}_strf is finished')
 
 
-#
 with h5py.File(f_lfp, 'r') as l_5:
     # loading the tsp/lfp dataset
 
@@ -109,8 +106,7 @@ with h5py.File(f_lfp, 'r') as l_5:
 
     for cond in nnc.conds:
         g_l[cond] = {}
-        for i in range(len(acor[cond])):
-            a_l = []
+        for i in range(len(lv)):
             lvl = lv[i]
             g_l[cond][lvl] = []
             print('hoy', acor[cond][i][an])
@@ -118,15 +114,21 @@ with h5py.File(f_lfp, 'r') as l_5:
                 print('hey')
                 pass
             else:
-                s_cord = datas[cond][i][an]
-                print(cond, s_cord)
-                lfp = l_5[cond][s_cord]
+                d_cord = datas[cond][i][an]
+                print(cond, d_cord)
+                lfp = l_5[cond][d_cord]
                 lfps = st.lfp_strf(p_info, lfp, tw=200)
                 llfp = np.array(lfps[0])
-
+                sl2[lvl].append(llfp)
                 g_l[cond][lvl].extend(llfp)
             print(f'{cond}:{lvl} is finished')
-        print(f'{cond}_strf is finished')
+        print(f'{cond} is finished')
+
+for lvl in lv:
+    if not np.any(sl2[lvl]):
+        continue
+    else:
+        g_l['a_strf'][lvl].extend(np.mean(sl2[lvl], axis=0))
 
 
 
@@ -148,8 +150,7 @@ with h5py.File(f_lfp, 'r') as l_5:
         for pt in p_type:
             g_l[cond][pt] = {}
             p_infop = p_infot[pt]
-            for i in range(len(acor[cond])):
-                a_l = []
+            for i in range(len(lv)):
                 lvl = lv[i]
                 g_l[cond][pt][lvl] = []
 
@@ -159,16 +160,38 @@ with h5py.File(f_lfp, 'r') as l_5:
                     pass
 
                 else:
-                    s_cord = datas[cond][i][an]
+                    d_cord = datas[cond][i][an]
 
-                    lfp = l_5[cond][s_cord]
+                    lfp = l_5[cond][d_cord]
                     lfps = st.lfp_strf(p_infop, lfp, tw=200)
                     llfp = np.array(lfps[0])
                     g_l[cond][pt][lvl].extend(llfp)
                 print(f'{cond}, {pt}:{lvl} is finished')
-            print(f'{cond}: {pt} is finished')
-        print(f'{cond} is finished')
+            print(f'{cond}_{pt}: {lvl} is finished')
+        print(f'{cond}_{pt} is finished')
 
 
-with open(snakemake.output[0], 'wb') as datas:
-    pickle.dump(g_l, datas, protocol=pickle.HIGHEST_PROTOCOL)
+# with open(snakemake.output[0], 'wb') as datas:
+#     pickle.dump(g_l, datas, protocol=pickle.HIGHEST_PROTOCOL)
+s_conds = s_conds + ['a']
+
+with h5py.File(snakemake.output[0], 'w') as h:
+    for cond in s_conds:
+        d1 = h.create_group(f'{cond}_strf')
+        for lvl in lv:
+            d2 = d1.create_dataset(
+                lvl, data=g_l[f'{cond}_strf'][lvl])
+
+    for cond in nnc.conds:
+        d1 = h.create_group(cond)
+        for lvl in lv:
+            d2 = d1.create_dataset(
+                lvl, data=g_l[cond][lvl])
+
+    for cond in nns.conds:
+        d1 = h.create_group(cond)
+        for pt in p_type:
+            d2 = d1.create_group(pt)
+            for lvl in lv:
+                d3 = d2.create_dataset(
+                    lvl, data=g_l[cond][pt][lvl])

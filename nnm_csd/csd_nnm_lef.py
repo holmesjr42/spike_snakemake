@@ -1,7 +1,11 @@
-import icsd
+import os
+import sys
+sys.path.insert(1, os.path.dirname(os.getcwd()))
+from tools import icsd
 import numpy as np
-import parameters as pm
+from parameters import parameters as pm
 import pickle
+import h5py
 import matplotlib.pyplot as plt
 from matplotlib import colors
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
@@ -9,110 +13,149 @@ from matplotlib import ticker
 import seaborn as sns
 import quantities as pq
 import neo.core
-import sys
+sys.path.pop(1)
 
-'''
-This is for a single animal data
-'''
+'''This is for a single data file. CSD for nnm continuous condition. Best 
+frequeny at the low edge of the gap. Following traditional way with 
+dividing with h**2 and no sigma is used. Uses rappel filter '''
+
 sns.set_style("ticks")
 sr_lfp = 1061.5 * pq.Hz  # for convert time into data coord in the data file
 comm = pm.Commonfeat
 bfs = comm.bf_dic  # best frequency dictionary
 b_list = comm.list_freq  # list of the 1/8 octave frequency to find index
-# for bf/cf frequency
-
-val = pm.Setup(cond='nnm_3_0', cond2='tsp', mode=1)
-ws = val.values()[7]  # minor setup for plot
-hs = 0.05
-
-# file_input = snakemake.input[0]
-file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
-             '/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk'
-
-f_name = file_input.split('/')[-1]
-animal = f_name.split('_')[0]
-bf = bfs[animal]
-cf = np.round(bf * 2**(-0.5))
-
-if cf == 9513:
-    cf = 9514
-elif cf == 3999:
-    cf = 4000
-else:
-    pass
-
-b_ind = np.where(b_list == cf)[0][0]
-print(b_ind)
-
-# loading file
-with open(file_input, 'rb') as dat:
-    datas = pickle.load(dat)
-
-lr = [datas['nnm_lef'], datas['nnm_lef_strf']]  # lfps list
-
+db = comm.db
+lvl = db['lv']  # SPLdB list
 la = {}  # dict of lfp for nnm condition
 ls = {}  # dict of lfp for strf condition
+csds = {}  # this is dict to store csd data
 
-lvl = ['70', '60', '50', '40']  # spl level I'm going to use
+val = pm.Setup(cond='nnm_3_0', cond2='tsp', mode=1, ccmap='csd')
+ccmap = val.values()[-1]
+# ccmap = 'jet_r'
+ws = val.values()[8]  # minor setup for plot
+hs = 0.05
 
-for i in lvl:
-    lra = lr[0][i]  # lfp for nnm
-    lrs = lr[1][i]  # lfp for strf
+file_input = snakemake.input[0]
+# file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
+#              '/data/dataset/nnm_lfp_avg/cr31_190312_lfp_avg_nnm.pk'
+# file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
+             # '/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.pk'
 
-    la[i] = []
-    ls[i] = []
-    for j in range(len(lrs)):
-        la[i].append(lra[j][b_ind])
-        ls[i].append(lrs[j][b_ind])
+# getting animal cr number
+animal = file_input.split('/')[-1].split('_')[0]
 
-csds = {}
+with h5py.File(file_input, 'r') as dat:
+    datas = dat
 
-for lv in list(la.keys()):
-    csds[lv] = []
-    lfps = np.array([la[lv], ls[lv]]) * pq.mV
-    # print(la.keys())
-    lfp_data1 = neo.core.AnalogSignal(lfps[0].T, sampling_rate=sr_lfp)
-    lfp_data2 = neo.core.AnalogSignal(lfps[1].T, sampling_rate=sr_lfp)
-    coord = np.arange(0, 1501, 100) * pq.micrometer
-    sigma = 1 / (100 * pq.micrometer)
+    if 'cr' in animal:
+        if animal == 'cr31' or animal == 'cr30':
+            plt.savefig(snakemake.output[0], dpi=150)
+            sys.exit()
 
-    std_input_nnm = {
-        'lfp': lfp_data1,
-        'coord_electrode': coord,
-        'sigma': sigma,
-        'f_type': 'rappel',
-        'f_order': 3,
-        }
+        bf = bfs[animal]
+        cf = np.round(bf * 2 ** 0.5)
 
-    std_input_strf = {
-        'lfp': lfp_data2,
-        'coord_electrode': coord,
-        'sigma': sigma,
-        'f_type': 'rappel',
-        'f_order': 3,
-        }
+        if cf == 9513:
+            cf = 9514
+        elif cf == 3999:
+            cf = 4000
+        else:
+            pass
 
-    std1 = icsd.estimate_csd(**std_input_nnm)
-    # rn_csd = np.transpose(std1[0] / std1[0].units) * std1[0].units
-    fn_csd = np.transpose(std1[1] / std1[1].units) * std1[1].units
-    # rn_csd.units = pq.mV / (pq.mm ** 2)
-    fn_csd.units = pq.mV / (pq.mm ** 2)
+        b_ind = np.where(b_list == cf)[0][0]
+        print(b_ind)
 
-    std2 = icsd.estimate_csd(**std_input_strf)
-    # rw_csd = np.transpose(std2[0] / std2[0].units) * std2[0].units
-    fs_csd = np.transpose(std2[1] / std2[1].units) * std2[1].units
-    # rw_csd.units = pq.mV / (pq.mm ** 2)
-    fs_csd.units = pq.mV / (pq.mm ** 2)
+        lr = [datas['nnm_lef'], datas['nnm_lef_strf']]  # lfps list
 
-    csds[lv].append(fn_csd)
-    csds[lv].append(fs_csd)
+        la = {}  # dict of lfp for nnm condition
+        ls = {}  # dict of lfp for strf condition
+
+        lvl = ['70', '60', '50', '40']  # spl level I'm going to use
+
+        for i in lvl:
+            lra = np.array(lr[0][i])  # lfp for nnm
+            lrs = np.array(lr[1][i])  # lfp for strf
+
+            la[i] = []
+            ls[i] = []
+            for j in range(len(lrs)):
+                la[i].append(lra[j][b_ind])
+                ls[i].append(lrs[j][b_ind])
+
+        csds = {}
+
+        for lv in list(la.keys()):
+            csds[lv] = []
+            lfps = np.array([la[lv], ls[lv]]) * pq.mV
+            # print(la.keys())
+            lfp_data1 = neo.core.AnalogSignal(lfps[0].T, sampling_rate=sr_lfp)
+            lfp_data2 = neo.core.AnalogSignal(lfps[1].T, sampling_rate=sr_lfp)
+            coord = np.arange(0, 1501, 100) * pq.micrometer
+            sigma = 1 / (100 * pq.micrometer)
+
+            std_input_nnm = {
+                'lfp': lfp_data1,
+                'coord_electrode': coord,
+                'sigma': sigma,
+                'f_type': 'rappel',
+                'f_order': 3,
+                }
+
+            std_input_strf = {
+                'lfp': lfp_data2,
+                'coord_electrode': coord,
+                'sigma': sigma,
+                'f_type': 'rappel',
+                'f_order': 3,
+                }
+
+            std1 = icsd.estimate_csd(**std_input_nnm)
+            # rn_csd = np.transpose(std1[0] / std1[0].units) * std1[0].units
+            fn_csd = np.transpose(std1[1] / std1[1].units) * std1[1].units
+            # rn_csd.units = pq.mV / (pq.mm ** 2)
+            fn_csd.units = pq.mV / (pq.mm ** 2)
+
+            std2 = icsd.estimate_csd(**std_input_strf)
+            # rw_csd = np.transpose(std2[0] / std2[0].units) * std2[0].units
+            fs_csd = np.transpose(std2[1] / std2[1].units) * std2[1].units
+            # rw_csd.units = pq.mV / (pq.mm ** 2)
+            fs_csd.units = pq.mV / (pq.mm ** 2)
+
+            csds[lv].append(fn_csd)
+            csds[lv].append(fs_csd)
+
+    elif 'csd' in animal:
+        if '30' in list(datas['lfp']['nnm_lef_strf'].keys()):
+            datas['lfp']['nnm_lef_strf'].pop('30')
+            datas['csd']['nnm_lef_strf'].pop('30')
+        else:
+            pass
+
+        if '30' in list(datas['lfp']['nnm_lef'].keys()):
+            datas['lfp']['nnm_lef'].pop('30')
+            datas['csd']['nnm_lef'].pop('30')
+        else:
+            pass
+
+        for lv in lvl:
+            la[lv] = {}
+            ls[lv] = {}
+            csds[lv] = {}
+            csds[lv] = [np.array(datas['csd']['nnm_lef'][lv]) * pq.mV / (
+                    pq.mm ** 2),
+                        np.array(datas['csd']['nnm_lef_strf'][lv]) *
+                        pq.mV / (pq.mm ** 2)]
+            la[lv] = np.array(datas['lfp']['nnm_lef'][lv]) * pq.mV
+            ls[lv] = np.array(datas['lfp']['nnm_lef_strf'][lv]) * pq.mV
+
 
 '''
 plot setup
 '''
 
 
-def csd_plot(zz, ax, image, cmap='jet_r'):
+def csd_plot(zz, ax, image, cmap=ccmap):
     zz = zz / zz.units
     sig = zz * 10 ** (-3)
     t_ticks = np.linspace(0, 200, 9, endpoint=True)
@@ -173,7 +216,7 @@ axinnc = []
 
 lvp = []  # spl list which actually has data
 for i in range(len(lvl)):
-    if not la[lvl[i]]:
+    if not np.any(la[lvl[i]]):
         continue
     else:
         lvp.append(lvl[i])
@@ -220,9 +263,9 @@ for i in range(len(lvp)):
                                      labelpad=10
                                      )
 
-    for j in range(3):
-        st_axes[0, i].get_xaxis().set_ticks([])
-        on_axes[0, i].get_xaxis().set_ticks([])
+
+    st_axes[0, i].get_xaxis().set_ticks([])
+    on_axes[0, i].get_xaxis().set_ticks([])
 
 st_axes[0, 0].text(-0.8, 0, 'STRF\nControl',
                    horizontalalignment='center',
@@ -290,4 +333,5 @@ for i in range(len(ax_ind)):
         axinnc[i].remove()
 
 # plt.show()
-c_fig.savefig('csd_test', dpi=300)
+# c_fig.savefig('csd_test', dpi=300)
+c_fig.savefig(snakemake.output[0], dpi=300)
