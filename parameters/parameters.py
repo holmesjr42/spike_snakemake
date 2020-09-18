@@ -1,5 +1,7 @@
 import numpy as np
 import pickle
+from matplotlib.colors import ListedColormap
+import seaborn as sns
 
 file_path = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/'
 param_path = '/home/bhc/codes/spike_snakemake/parameters/'
@@ -18,7 +20,7 @@ class Commonfeat:
 
     # animal/data folder name
     animals = ['cr29_190228', 'cr30_190305', 'cr31_190312', 'cr33_190321',
-               'cr35_190403', 'cr50_190724', 'cr79_200211']
+               'cr50_190724', 'cr79_200211']
 
     p_info = np.load(param_path + 'time_index_multi_tones_500ms_180s.npy',
                      allow_pickle=True)
@@ -98,9 +100,15 @@ class Datas:
 
 class Setup:
     def __init__(self, mode=0, yl=0.1, cond=None, cond2=None,
-                 nb=5, ch=None, ws=0.1, hs=0.15, ccmap="jet"):
+                 nb=5, ch=None, ws=0.1, hs=0.15, ccmap=None, ratio=0.7,
+                 dm=None):
+
         if ch is None:
-            ch = np.array([1, 5, 8, 10, 12])
+            ch = np.array([4, 6, 8, 10, 12])
+        if ccmap is None:
+            ccmap = ListedColormap(sns.color_palette("mako", 256))
+        elif ccmap == 'csd':
+            ccmap = ListedColormap(sns.color_palette("mako_r", 256))
 
         self.mode = mode
         self.yl = yl
@@ -111,6 +119,8 @@ class Setup:
         self.ws = ws
         self.hs = hs
         self.ccmap = ccmap
+        self.ratio = ratio
+        self.dm = dm
 
     def values(self):
         depths = ['0', '100', '200', '300', '400', '500', '600', '700',
@@ -120,6 +130,11 @@ class Setup:
         cb = '#e6e6e6'
         cc = 0
         depth = []
+
+        if self.dm is None:
+            dcmap = sns.color_palette('colorblind').as_hex()
+        else:
+            dcmap = 'jet'
 
         for i in self.ch:
             depth.append(depths[i])
@@ -132,7 +147,7 @@ class Setup:
             print('ni nun ong-i-gumung')
 
         return [self.mode, self.yl, self.cond, self.cond2, self.nb, self.ch,
-                depth, self.ws, self.hs, self.ccmap, cc, cb]
+                depth, dcmap, self.ws, self.hs, self.ratio, cc, cb, self.ccmap]
 
 
 class Nn:
