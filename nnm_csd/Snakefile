@@ -1,0 +1,98 @@
+# I'm going to remove 'cr35_190403' because it's not a good data
+
+NAMES = ['cr29_190228', 'cr30_190305', 'cr31_190312', 'cr33_190321', 'cr50_190724', 'cr79_200211']
+NAMES2 = ['cr29_190228', 'cr30_190305', 'cr31_190312', 'cr33_190321', 'cr50_190724', 'cr79_200211', 'csd']
+
+rule all:
+    input:
+        expand("/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/{name}_lfp_avg_nnm.hdf5", name=NAMES),
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.hdf5",
+        expand("/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_{name}_nnm_3_0.png", name=NAMES2),
+        expand("/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0_05/csd_{name}_nnm_3_0_05.png", name=NAMES2),
+        expand("/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_hef/csd_{name}_nnm_hef.png", name=NAMES2),
+        expand("/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_lef/csd_{name}_nnm_lef.png", name=NAMES2),
+        expand("/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_{name}_nnm_3_1.png", name=NAMES2),
+        expand("/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_1_1/csd_{name}_nnm_1_1.png", name=NAMES2)
+        
+rule lfp_average_for_csd:
+    input:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/{name}_lfp_fil.hdf5"
+   
+    output:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/{name}_lfp_avg_nnm.hdf5"
+    
+    script:
+        "/home/bhc/codes/spike_snakemake/nnm_csd/nnm_lfp_session_average.py"
+
+rule lfp_csd_average:
+    input:
+        expand("/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/{name}_lfp_avg_nnm.hdf5", name=NAMES)
+
+    output:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.hdf5"
+    
+    script:
+        "/home/bhc/codes/spike_snakemake/nnm_csd/nnm_csd_average.py"
+
+rule csd_nnm_3_0:
+    input:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/{name}_lfp_avg_nnm.hdf5"
+    
+    output:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_{name}_nnm_3_0.png"
+    
+    script:
+        "/home/bhc/codes/spike_snakemake/nnm_csd/csd_nnm_3_0.py"
+
+rule csd_nnm_3_0_05:
+    input:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/{name}_lfp_avg_nnm.hdf5"
+    
+    output:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0_05/csd_{name}_nnm_3_0_05.png"
+    
+    script:
+        "/home/bhc/codes/spike_snakemake/nnm_csd/csd_nnm_3_0_05.py"
+
+rule csd_nnm_hef:
+    input:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/{name}_lfp_avg_nnm.hdf5"
+    
+    output:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_hef/csd_{name}_nnm_hef.png"
+    
+    script:
+        "/home/bhc/codes/spike_snakemake/nnm_csd/csd_nnm_hef.py"
+
+rule csd_nnm_lef:
+    input:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/{name}_lfp_avg_nnm.hdf5"
+    
+    output:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_lef/csd_{name}_nnm_lef.png"
+    
+    script:
+        "/home/bhc/codes/spike_snakemake/nnm_csd/csd_nnm_lef.py"
+
+
+rule csd_nnm_3_1:
+    input:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/{name}_lfp_avg_nnm.hdf5"
+    
+    output:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_{name}_nnm_3_1.png"
+    
+    script:
+        "/home/bhc/codes/spike_snakemake/nnm_csd/csd_nnm_3_1.py"
+
+
+rule csd_nnm_1_1:
+    input:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/{name}_lfp_avg_nnm.hdf5"
+    
+    output:
+        "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_1_1/csd_{name}_nnm_1_1.png"
+    
+    script:
+        "/home/bhc/codes/spike_snakemake/nnm_csd/csd_nnm_1_1.py"
+
