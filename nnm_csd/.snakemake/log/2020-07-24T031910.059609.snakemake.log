@@ -1,0 +1,77 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	8	csd_nnm_1_1
+	7	csd_nnm_3_0
+	8	csd_nnm_3_0_05
+	8	csd_nnm_3_1
+	8	csd_nnm_hef
+	8	csd_nnm_lef
+	48
+
+[Fri Jul 24 03:19:10 2020]
+rule csd_nnm_lef:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_lef/csd_cr50_190724_nnm_lef.png
+    jobid: 37
+    wildcards: name=cr50_190724
+
+[Fri Jul 24 03:19:10 2020]
+rule csd_nnm_3_1:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr50_190724_nnm_3_1.png
+    jobid: 45
+    wildcards: name=cr50_190724
+
+[Fri Jul 24 03:19:10 2020]
+rule csd_nnm_hef:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_hef/csd_cr50_190724_nnm_hef.png
+    jobid: 29
+    wildcards: name=cr50_190724
+
+[Fri Jul 24 03:19:15 2020]
+Finished job 29.
+1 of 48 steps (2%) done
+
+[Fri Jul 24 03:19:15 2020]
+rule csd_nnm_1_1:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_1_1/csd_cr50_190724_nnm_1_1.png
+    jobid: 53
+    wildcards: name=cr50_190724
+
+[Fri Jul 24 03:19:15 2020]
+Finished job 37.
+2 of 48 steps (4%) done
+
+[Fri Jul 24 03:19:15 2020]
+rule csd_nnm_3_0_05:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0_05/csd_cr50_190724_nnm_3_0_05.png
+    jobid: 21
+    wildcards: name=cr50_190724
+
+[Fri Jul 24 03:19:17 2020]
+Error in rule csd_nnm_1_1:
+    jobid: 53
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_1_1/csd_cr50_190724_nnm_1_1.png
+
+RuleException:
+CalledProcessError in line 94 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/scripts/tmpe2esdy3b.csd_nnm_1_1.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/nnm_csd/Snakefile", line 94, in __rule_csd_nnm_1_1
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+[Fri Jul 24 03:19:18 2020]
+Finished job 45.
+3 of 48 steps (6%) done
+[Fri Jul 24 03:19:21 2020]
+Finished job 21.
+4 of 48 steps (8%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/log/2020-07-24T031910.059609.snakemake.log
