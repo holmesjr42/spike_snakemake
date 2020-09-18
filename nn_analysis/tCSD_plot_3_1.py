@@ -1,3 +1,8 @@
+import os
+import sys
+
+sys.path.insert(1, os.path.dirname(os.getcwd()))
+
 from tools import icsd
 import numpy as np
 from parameters import parameters as pm
@@ -8,24 +13,31 @@ from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import seaborn as sns
 import quantities as pq
 import neo.core
-# import pandas as pd
-import sys
 
-# import pandas as pd
+sys.path.pop(1)
+
+'''This is for a single animal data. CSD for nnm continuous condition. Best 
+frequeny at the high edge of the gap. Following traditional way with 
+dividing with h**2 and no sigma is used. Uses rappel filter (it's hamming 
+filter but has different parameters from genenral hamming window) 
+
 # used icsd.py to get raw csd. If you use estimated_csd or elephant,
 # which gives you the output of estimated_csd, you will have filtered csd
 # instead of raw one, which is different from what your supervisor asked you
 # to calculate. But maybe it's not bad to study how to get estimated_csd.
 # for this one, I used traditional CSD filtered with hamming three point
-# method.
+# method. '''
 
 '''
 This is for a single animal data
 '''
 sns.set_style("ticks")
+val = pm.Setup(cond='nnm_3_0', cond2='tsp', mode=1, ccmap='csd')
+ccmap = val.values()[-1]
+# ccmap = 'jet_r'
 file_input = snakemake.input[0]
 # file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
-#              '/data/dataset/nn_lfp_avg/cr33_190321_nn_lfp_a.pk'
+#              '/data/dataset/nn_lfp_avg/cr79_200211_nn_lfp_a.pk'
 
 sr_lfp = 1061.5 * pq.Hz  # for convert time into data coord in the data file
 ons = [0, 500]  # time window for onset response
@@ -85,7 +97,7 @@ plot setup
 '''
 
 
-def csd_plot(zz, ax, image, sec='whole', cmap='jet_r'):
+def csd_plot(zz, ax, image, sec='whole', cmap=ccmap):
     zz = zz / zz.units
     if sec == 'whole':
         pi = 0
@@ -247,14 +259,14 @@ p_axes[1, 0].text(-0.2, -750, 'CSD', ha='center', va='center',
 
 
 # normalize
-def norm_color(img, type, ratio=0.45):
-    if type == 'lfp':
+def norm_color(img, types, ratio=0.6):
+    if types == 'lfp':
         vmin = min(ims.get_array().min() for ims in img) * ratio
         vmax = max(ims.get_array().max() for ims in img) * ratio
         norm = colors.Normalize(vmin=vmin, vmax=vmax)
-    elif type == 'csd':
-        vmax = max(max(img.get_array().max() for ims in img), np.abs(min(
-            img.get_array().min() for ims in img))) * ratio
+    elif types == 'csd':
+        vmax = max(max(ims.get_array().max() for ims in img), np.abs(min(
+            ims.get_array().min() for ims in img))) * ratio
         vmin = (-1) * vmax
         norm = colors.Normalize(vmin=vmin, vmax=vmax)
     else:

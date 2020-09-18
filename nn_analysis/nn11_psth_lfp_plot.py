@@ -1,13 +1,17 @@
+import os
+import sys
+
+sys.path.insert(1, os.path.dirname(os.getcwd()))
+
 import numpy as np
-import spike_tools as st
 import h5py
-import nn_tool as nt
-import parameters as pm
+from tools import nn_tool as nt
+from parameters import parameters as pm
 import matplotlib.pyplot as plt
 import pickle
-from matplotlib import colors
-from matplotlib import ticker
 import seaborn as sns
+
+sys.path.pop(1)
 
 '''
 This is for a single animal data
@@ -21,16 +25,17 @@ d_spk = snakemake.input.tsp
 #         "/dataset/nn_lfp_avg/cr50_190724_nn_lfp_a.pk"
 # d_spk = "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data" \
 #         "/dataset/tsp/cr50_190724_tsp.hdf5"
-
+#
 '''
 setup
 '''
 
-chs = [1, 3, 5, 7, 9, 11, 13, 14]
+chs = [4, 6, 8, 10, 12]
 val = pm.Setup(cond2='tsp', ch=chs)
-cb = val.values()[-1]
+cb = val.values()[-2]
 depth = val.values()[6]
-color = ['dodgerblue', 'tab:orange']
+dcmap = val.values()[7]
+color = [dcmap[0], dcmap[1]]
 names = ['nn_1_1', 'nn_wn_1_1']
 sns.set_style('ticks')
 
@@ -71,7 +76,7 @@ plot setup
 '''
 c_fig, axs = plt.subplots(len(chs), 5, figsize=(16, 9), dpi=300)
 c_fig.subplots_adjust(right=0.85, hspace=0.4, wspace=0.07)
-c_fig.patch.set_facecolor(cb)
+# c_fig.patch.set_facecolor(cb)
 
 # lfp
 # min and max value for x, y limit
@@ -82,16 +87,17 @@ minf = np.around(mins, decimals=-2) - 100
 xticks = np.array([
                    np.linspace(0, 2, 5, endpoint=True),
                    np.linspace(0, 2, 9, endpoint=True)
-                  ])
+                  ], dtype=object)
+
 yticks_p = np.array([
                      np.linspace(0, s_max, 3, endpoint=True),
                      np.linspace(0, s_max, 9, endpoint=True)
-                    ])
+                    ], dtype=object)
 
 yticks_l = np.array([
                      np.linspace(minf, maxf, 3, endpoint=True),
                      np.linspace(minf, maxf, 9, endpoint=True)
-                    ])
+                    ], dtype=object)
 
 
 for i in range(len(chs)):
@@ -158,9 +164,9 @@ axs[0, 1].set_title('White Noise')
 axs[0, 3].set_title('Notched Noise')
 axs[0, 4].set_title('White Noise')
 c_fig.text(0.27, 0.05, 'Time (s)', ha='center', va='center', fontsize=15)
-c_fig.text(0.75, 0.05, 'Time (s)', ha='center', va='center', fontsize=15)
+c_fig.text(0.71, 0.05, 'Time (s)', ha='center', va='center', fontsize=15)
 c_fig.text(0.27, 0.95, 'Averaged PSTH', ha='center', va='center', fontsize=15)
-c_fig.text(0.75, 0.95, 'Averaged LFP', ha='center', va='center', fontsize=15)
+c_fig.text(0.71, 0.95, 'Averaged LFP', ha='center', va='center', fontsize=15)
 c_fig.text(0.08, 0.5, 'Firing rate (spk/s)', ha='center', va='center',
            rotation='vertical', fontsize=15)
 # c_fig.text(0.47, 0.5, 'Amplitude (mV)', ha='center', va='center',
