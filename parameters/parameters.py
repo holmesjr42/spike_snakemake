@@ -107,6 +107,7 @@ class Setup:
             ch = np.array([4, 6, 8, 10, 12])
         if ccmap is None:
             ccmap = ListedColormap(sns.color_palette("mako", 256))
+            # "vlag" "icefire"
         elif ccmap == 'csd':
             ccmap = ListedColormap(sns.color_palette("mako_r", 256))
 
