@@ -76,6 +76,8 @@ def lfp_strf(p_info, lfp, tw=100, twi=19, twf=50):
     lfp_m = [[] for _ in range(16)]
     lfp_f = [[] for _ in range(16)]
     avg = [[] for _ in range(16)]
+    twi = int(twi * sr_lfp / 1000)
+    twf = int(twf * sr_lfp / 1000)
     for i in range(16):
         lfp_m[i] = [[] for _ in range(49)]
         lfp_f[i] = [[] for _ in range(49)]

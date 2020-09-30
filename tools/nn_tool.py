@@ -1,8 +1,14 @@
+import os
+import sys
+sys.path.insert(1, os.path.dirname(os.getcwd()))
+
 import scipy.signal as scig
 import numpy as np
 # import spike_tools as st
-import parameters as pm
+from parameters import parameters as pm
 import sys
+
+sys.path.pop(1)
 
 # time index for notched noise. in[0] is the lower boundary and in[1] is
 # the higher boundary.
@@ -172,7 +178,7 @@ def psth_plot(ax, t, spikes, xticks, yticks, c_type):
         print('something is wrong')
         sys.exit()
 
-    ax.plot(t / 1000, spikes, lw=0.5, color=c_line)
+    ax.plot(t / 1000, spikes, lw=0.7, color=c_line)
     ax.set_yticks(yticks)
     ax.set_xticks(xticks)
 
