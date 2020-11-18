@@ -31,10 +31,12 @@ com = pm.Commonfeat
 
 # continuous nn
 val = pm.Setup(cond='nnm_lef', cond2='tsp', ratio=0.6, mode=1)
-val2 = pm.Setup(cond='nnm_lef', cond2='lfp', mode=1)
+val2 = pm.Setup(cond='nnm_3_0', cond2='lfp', mode=1, ccmap='lfp')
 mode, ylc, condc, condt, nb, ch, depth, dcmap, ws, hs, rt, cct, \
 cb, ccmap = val.values()
-ccl = val2.values()[-2]  # color for notch borders
+ccl = val2.values()[-3]  # color for notch borders
+# lfp spectrogram colormap
+lcmap = val2.values()[-1]
 condl = 'lfp'
 octs = com.octaves  # octave range for plotting
 lvl = com.db['lv']  # SPLdB list
@@ -310,8 +312,8 @@ for j in lvp:
         aaxn = l1_axs[j][i, 1]
         aaxc = l1_axs[j][i, 0]
         # print('hey', tspc[i])
-        plott(aaxn, tspn[ch[i]], cl_img)
-        plott(aaxc, tspc[ch[i]], cl_img)
+        plott(aaxn, tspn[ch[i]], cl_img, cm=lcmap)
+        plott(aaxc, tspc[ch[i]], cl_img, cm=lcmap)
         # axinc.append(axin_s)
 
         # lines for the gap

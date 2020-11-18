@@ -42,11 +42,11 @@ p_type = ['nn', 'si']  # corresponds to dict keys for notched noise and
 s_conds = np.append(nnc.conds, nns.conds[0:2])
 
 # dicts
-g_t = {}
-g_l = {}
-g_f = {}
-g_lf = {}
-list_o = {}
+g_t = {}    # spike
+g_l = {}    # lfp
+g_f = {}    # frequecny profile
+g_lf = {}   # lfp frequency profile
+list_o = {}    # octave list
 
 '''
 strf
