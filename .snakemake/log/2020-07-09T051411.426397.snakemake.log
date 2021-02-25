@@ -1,0 +1,64 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	7	lfp_average_for_csd
+	8
+
+[Thu Jul  9 05:14:11 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr35_190403_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr35_190403_lfp_avg_nnm.pk
+    jobid: 5
+    wildcards: name=cr35_190403
+
+[Thu Jul  9 05:14:11 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr33_190321_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.pk
+    jobid: 4
+    wildcards: name=cr33_190321
+
+[Thu Jul  9 05:14:11 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr50_190724_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+    jobid: 6
+    wildcards: name=cr50_190724
+
+[Thu Jul  9 05:14:11 2020]
+Error in rule lfp_average_for_csd:
+[Thu Jul  9 05:14:11 2020]
+    jobid: 4
+[Thu Jul  9 05:14:11 2020]
+Error in rule lfp_average_for_csd:
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.pk
+Error in rule lfp_average_for_csd:
+    jobid: 6
+
+    jobid: 5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr35_190403_lfp_avg_nnm.pk
+
+
+RuleException:
+CalledProcessError in line 14 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmpfhuma59b.nnm_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 14, in __rule_lfp_average_for_csd
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+RuleException:
+CalledProcessError in line 14 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmp74_b_fxf.nnm_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 14, in __rule_lfp_average_for_csd
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+RuleException:
+CalledProcessError in line 14 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmpluywe0b2.nnm_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 14, in __rule_lfp_average_for_csd
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/.snakemake/log/2020-07-09T051411.426397.snakemake.log

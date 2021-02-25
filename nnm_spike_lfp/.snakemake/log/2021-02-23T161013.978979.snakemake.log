@@ -1,0 +1,44 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	13	nnm_1_1_off_sp_lfp
+	13	nnm_1_1_on_sp_lfp
+	13	nnm_3_0_sp_lfp
+	13	nnm_3_1_off_sp_lfp
+	13	nnm_3_1_on_sp_lfp
+	1	spk_lfp_average
+	15	spk_lfp_session_average
+	82
+
+[Tue Feb 23 16:10:14 2021]
+rule spk_lfp_session_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr31_190312_lfp_fil.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr31_190312_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr31_190312_spk_lfp_avg_nnm.hdf5
+    jobid: 3
+    wildcards: name=cr31_190312
+
+[Tue Feb 23 16:10:14 2021]
+rule spk_lfp_session_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr50_190724_lfp_fil.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr50_190724_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr50_190724_spk_lfp_avg_nnm.hdf5
+    jobid: 5
+    wildcards: name=cr50_190724
+
+[Tue Feb 23 16:10:14 2021]
+rule spk_lfp_session_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr33_190321_lfp_fil.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr33_190321_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr33_190321_spk_lfp_avg_nnm.hdf5
+    jobid: 4
+    wildcards: name=cr33_190321
+
+[Tue Feb 23 16:10:14 2021]
+rule spk_lfp_session_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr79_200211_lfp_fil.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr79_200211_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr79_200211_spk_lfp_avg_nnm.hdf5
+    jobid: 6
+    wildcards: name=cr79_200211
+

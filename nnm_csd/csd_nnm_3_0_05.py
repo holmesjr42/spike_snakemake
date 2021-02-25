@@ -1,5 +1,6 @@
 import os
 import sys
+
 sys.path.insert(1, os.path.dirname(os.getcwd()))
 from tools import icsd
 import numpy as np
@@ -13,6 +14,7 @@ from matplotlib import ticker
 import seaborn as sns
 import quantities as pq
 import neo.core
+
 sys.path.pop(1)
 
 '''
@@ -41,19 +43,25 @@ hs = 0.05
 
 file_input = snakemake.input[0]
 # file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
-#              '/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk'
+#              '/data/dataset/nnm_lfp_avg/cr30_190305_lfp_avg_nnm.hdf5'
 # file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
 #              '/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.pk'
 
 # getting animal cr number
 animal = file_input.split('/')[-1].split('_')[0]
+
+if not animal in ['cr29', 'cr31', 'cr33', 'cr50', 'cr79', 'csd']:
+    plt.savefig(snakemake.output[0], dpi=300)
+    sys.exit()
+else:
+    pass
+
 # loading data
 with h5py.File(file_input, 'r') as dat:
     datas = dat
 
-    if animal == 'cr30':
-        plt.savefig(snakemake.output[0], dpi=300)
-        sys.exit()
+
+
     if 'cr' in animal:
         bf = bfs[animal]
         print(bf)
@@ -75,11 +83,9 @@ with h5py.File(file_input, 'r') as dat:
                 la[i].append(lra[j][b_ind])
                 ls[i].append(lrs[j][b_ind])
 
-
-
         for lv in list(la.keys()):
             csds[lv] = []
-            lfps = np.array([la[lv], ls[lv]]) * pq.mV
+            lfps = np.array([la[lv], ls[lv]]) * pq.microvolt
             # print(la.keys())
             lfp_data1 = neo.core.AnalogSignal(lfps[0].T, sampling_rate=sr_lfp)
             lfp_data2 = neo.core.AnalogSignal(lfps[1].T, sampling_rate=sr_lfp)
@@ -149,7 +155,7 @@ plot setup
 
 def csd_plot(zz, ax, image, cmap=ccmap):
     zz = zz / zz.units
-    sig = zz * 10 ** (-3)
+    sig = zz
     t_ticks = np.linspace(0, 200, 9, endpoint=True)
     t_ticks2 = np.linspace(0, 200, 5, endpoint=True)
     img = ax.imshow(
@@ -189,7 +195,7 @@ def cbar_t(cbar, type):
 
     elif type == 'csd':
         cbar.set_label(
-            r'$\times$10$^{-3}$' + ' ' + r'mV/$mm^{2}$',
+            r'mV/$mm^{2}$',
             labelpad=15, size=9
             )
 
@@ -225,8 +231,10 @@ on_axes = c_fig.subplots(2, len(lvp), gridspec_kw=dict(left=0.05,
 
 for i in range(len(lvp)):
 
-    n_lfp = la[lvp[i]] * pq.mV
-    s_lfp = ls[lvp[i]] * pq.mV
+    n_lfp = la[lvp[i]] * pq.microvolt
+    n_lfp.units = pq.mV
+    s_lfp = ls[lvp[i]] * pq.microvolt
+    n_lfp.units = pq.mV
     n_csd = csds[lvp[i]][0]
     s_csd = csds[lvp[i]][1]
 
@@ -255,7 +263,6 @@ for i in range(len(lvp)):
                                      labelpad=10
                                      )
 
-
     st_axes[0, i].get_xaxis().set_ticks([])
     on_axes[0, i].get_xaxis().set_ticks([])
 
@@ -275,10 +282,14 @@ on_axes[0, 0].text(-0.8, 0, 'NN\nContinuous',
                    fontdict={'weight': 'bold', 'size': 11}
                    )
 
+
 def norm_color(img, type, ratio=0.7):
     if type == 'lfp':
-        vmin = min(ims.get_array().min() for ims in img) * ratio
-        vmax = max(ims.get_array().max() for ims in img) * ratio
+        # vmin = min(ims.get_array().min() for ims in img) * ratio
+        # vmax = max(ims.get_array().max() for ims in img) * ratio
+        vmax = max(max(ims.get_array().max() for ims in img), np.abs(min(
+            ims.get_array().min() for ims in img))) * ratio
+        vmin = (-1) * vmax
         norm = colors.Normalize(vmin=vmin, vmax=vmax)
     elif type == 'csd':
         vmax = max(max(ims.get_array().max() for ims in img), np.abs(min(

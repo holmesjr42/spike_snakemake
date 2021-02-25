@@ -1,0 +1,10 @@
+Building DAG of jobs...
+MissingInputException in line 3 of /home/bhc/codes/spike_snakemake/Snakefile:
+Missing input files for rule all:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr29_190228.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr79_200211.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr33_190321.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr35_190403.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr30_190305.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr50_190724.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr31_190312.png

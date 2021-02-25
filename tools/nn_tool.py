@@ -1,7 +1,9 @@
 import os
 import sys
+
 sys.path.insert(1, os.path.dirname(os.getcwd()))
 
+import matplotlib.pyplot as plt
 import scipy.signal as scig
 import numpy as np
 # import spike_tools as st
@@ -14,6 +16,8 @@ sys.path.pop(1)
 # the higher boundary.
 in31 = pm.Nn.nn_i['nn31']
 in11 = pm.Nn.nn_i['nn11']
+val = pm.Setup(cond='nnm_3_0', cond2='tsp', mode=1)
+crl = val.values()[7]
 sr_lfp = 1061.5  # lfp sampling rate
 
 # smoothing filter using hanning window
@@ -73,7 +77,7 @@ def psth(mua, indt):
         for j in range(rep):  # session of on nn31 file with 4000 ms/session
             n_raster[i].append(mua[i][ind[0][j]:ind[1][j] + 1])
         n_psth.append(np.sum(n_raster[i], axis=0))
-        s_psth.append(np.convolve(filt / filt.sum(), n_psth[i] / (rep * 0.001),
+        s_psth.append(np.convolve(filt / filt.sum(), n_psth[i] / rep,
                                   mode='same'))
     return n_raster, n_psth, s_psth, t_n
 
@@ -99,6 +103,19 @@ def lfp_seg(lfp, indt):
             l_seg[i].append(lfp[i][np.int(ind_l[j]):
                                    np.int(ind_h[j])])
     return l_seg
+
+
+def lfp_index(t1, t2=0, types=0):
+    if types == 0:
+        inds = np.int(np.round(t1 * (sr_lfp / 1000)))
+    elif types == 1:
+        inds = int(np.round(
+            t1 * (sr_lfp / 1000) + int((t2 * sr_lfp / 1000))
+            ))
+    else:
+        print("you didn't choose the right types")
+        raise
+    return inds
 
 
 def m_spectro(l_seg):
@@ -171,23 +188,24 @@ def psth_plot(ax, t, spikes, xticks, yticks, c_type):
     """
 
     if c_type == 'nn_3_1' or c_type == 'nn_1_1':
-        c_line = 'dodgerblue'
+        c_line = crl[0]
     elif c_type == 'nn_wn_3_1' or c_type == 'nn_wn_1_1':
-        c_line = 'tab:orange'
+        c_line = crl[1]
     else:
-        print('something is wrong')
+        print('something is wrong with psth_plot in nn_tools')
         sys.exit()
 
-    ax.plot(t / 1000, spikes, lw=0.7, color=c_line)
+    ax.plot(t / 1000, spikes, lw=1, color=c_line, alpha=0.8)
     ax.set_yticks(yticks)
     ax.set_xticks(xticks)
 
 
-def lfp_plot(ax, t, lfp, xticks, yticks, c_type):
+def lfp_plot(ax, t, lfp, conf, xticks, yticks, c_type):
     """
     :param ax: axis of a plot/subplo
     :param t: time array
     :param lfp: averaged lfp
+    :param conf: confidence interval of lfp
     :param xticks: array for the xtick
     :param yticks: array for the ytick
     :param c_type: 'nn' or 'wn' to choose the line color
@@ -195,14 +213,22 @@ def lfp_plot(ax, t, lfp, xticks, yticks, c_type):
     """
 
     if c_type == 'nn_3_1' or c_type == 'nn_1_1':
-        c_line = 'dodgerblue'
+        c_line = crl[0]
     elif c_type == 'nn_wn_3_1' or c_type == 'nn_wn_1_1':
-        c_line = 'tab:orange'
+        c_line = crl[1]
     else:
-        print('something is wrong')
+        print('something is wrong with lfp_plot nn_tools')
         sys.exit()
+    lfp = lfp
+    conf1 = np.transpose(conf)
 
-    ax.plot(t / 1000, lfp, lw=0.5, color=c_line)
+    ax.plot(t / 1000, lfp, lw=1, color=c_line, alpha=0.8)
+    ax.fill_between(
+        t / 1000,
+        conf1[0],
+        conf1[1],
+        alpha=.2
+        )
     ax.set_yticks(yticks)
     ax.set_xticks(xticks)
 

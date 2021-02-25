@@ -1,0 +1,74 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	5	nn_1_1_lfp_s
+	6
+
+[Tue May 26 13:32:29 2020]
+rule nn_1_1_lfp_s:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr50_190724_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr50_190724_nn_1_1_lfp_s.png
+    jobid: 9
+    wildcards: name=cr50_190724
+
+[Tue May 26 13:32:34 2020]
+Finished job 9.
+1 of 6 steps (17%) done
+
+[Tue May 26 13:32:34 2020]
+rule nn_1_1_lfp_s:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr33_190321_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr33_190321_nn_1_1_lfp_s.png
+    jobid: 7
+    wildcards: name=cr33_190321
+
+[Tue May 26 13:32:39 2020]
+Finished job 7.
+2 of 6 steps (33%) done
+
+[Tue May 26 13:32:39 2020]
+rule nn_1_1_lfp_s:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr35_190403_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr35_190403_nn_1_1_lfp_s.png
+    jobid: 8
+    wildcards: name=cr35_190403
+
+[Tue May 26 13:32:43 2020]
+Finished job 8.
+3 of 6 steps (50%) done
+
+[Tue May 26 13:32:43 2020]
+rule nn_1_1_lfp_s:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr79_200211_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr79_200211_nn_1_1_lfp_s.png
+    jobid: 10
+    wildcards: name=cr79_200211
+
+[Tue May 26 13:32:47 2020]
+Finished job 10.
+4 of 6 steps (67%) done
+
+[Tue May 26 13:32:47 2020]
+rule nn_1_1_lfp_s:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr31_190312_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr31_190312_nn_1_1_lfp_s.png
+    jobid: 6
+    wildcards: name=cr31_190312
+
+[Tue May 26 13:32:52 2020]
+Finished job 6.
+5 of 6 steps (83%) done
+
+[Tue May 26 13:32:52 2020]
+localrule all:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr31_190312_nn_3_1_lfp_s.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr33_190321_nn_3_1_lfp_s.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr35_190403_nn_3_1_lfp_s.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_nn_3_1_lfp_s.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_nn_3_1_lfp_s.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr31_190312_nn_1_1_lfp_s.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr33_190321_nn_1_1_lfp_s.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr35_190403_nn_1_1_lfp_s.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr50_190724_nn_1_1_lfp_s.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr79_200211_nn_1_1_lfp_s.png
+    jobid: 0
+
+[Tue May 26 13:32:52 2020]
+Finished job 0.
+6 of 6 steps (100%) done
+Complete log: /home/bhc/codes/spike_snakemake/.snakemake/log/2020-05-26T133229.971405.snakemake.log

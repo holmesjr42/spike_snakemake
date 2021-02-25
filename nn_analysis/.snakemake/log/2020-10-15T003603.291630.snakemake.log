@@ -1,0 +1,48 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	nn_1_1_csd_plot
+	1	nn_3_1_csd_plot
+	3
+
+[Thu Oct 15 00:36:03 2020]
+rule nn_1_1_csd_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr87_201013_nn_lfp_a.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr87_201013_70_nn11_csd_lfp_2.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr87_201013_70_nn11_csd_lfp_0_1.png
+    jobid: 25
+    wildcards: name=cr87_201013
+
+[Thu Oct 15 00:36:03 2020]
+rule nn_3_1_csd_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr87_201013_nn_lfp_a.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr87_201013_70_nn31_csd_lfp_4.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr87_201013_70_nn31_csd_lfp_0_3.png
+    jobid: 15
+    wildcards: name=cr87_201013
+
+[Thu Oct 15 00:36:04 2020]
+Error in rule nn_1_1_csd_plot:
+    jobid: 25
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr87_201013_70_nn11_csd_lfp_2.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr87_201013_70_nn11_csd_lfp_0_1.png
+
+RuleException:
+CalledProcessError in line 92 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/scripts/tmpnhfrh8y3.tCSD_plot_1_1.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/nn_analysis/Snakefile", line 92, in __rule_nn_1_1_csd_plot
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+[Thu Oct 15 00:36:04 2020]
+Error in rule nn_3_1_csd_plot:
+    jobid: 15
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr87_201013_70_nn31_csd_lfp_4.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr87_201013_70_nn31_csd_lfp_0_3.png
+
+RuleException:
+CalledProcessError in line 55 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/scripts/tmp5xfoy62t.tCSD_plot_3_1.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/nn_analysis/Snakefile", line 55, in __rule_nn_3_1_csd_plot
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/log/2020-10-15T003603.291630.snakemake.log

@@ -1,0 +1,31 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	4	nn_1_1_psth_lfp_plot
+	4	nn_3_1_psth_lfp_plot
+	9
+
+[Mon Oct  5 16:06:41 2020]
+rule nn_1_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr50_190724_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr50_190724_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr50_190724_nn11_psth_lfp.png
+    jobid: 19
+    wildcards: name=cr50_190724
+
+[Mon Oct  5 16:06:41 2020]
+Error in rule nn_1_1_psth_lfp_plot:
+    jobid: 19
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr50_190724_nn11_psth_lfp.png
+
+RuleException:
+CalledProcessError in line 65 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/scripts/tmp4kx3icjs.nn11_psth_lfp_plot.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/nn_analysis/Snakefile", line 65, in __rule_nn_1_1_psth_lfp_plot
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/log/2020-10-05T160641.356354.snakemake.log

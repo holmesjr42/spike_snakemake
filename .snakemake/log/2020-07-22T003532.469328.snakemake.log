@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	lfp_csd_average
+	2
+
+[Wed Jul 22 00:35:32 2020]
+rule lfp_csd_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr29_190228_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr30_190305_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr31_190312_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr35_190403_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr79_200211_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.pk
+    jobid: 50
+
+[Wed Jul 22 00:35:33 2020]
+Error in rule lfp_csd_average:
+    jobid: 50
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.pk
+
+RuleException:
+CalledProcessError in line 94 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmpvp67ytc9.nnm_csd_average.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 94, in __rule_lfp_csd_average
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/.snakemake/log/2020-07-22T003532.469328.snakemake.log

@@ -1,0 +1,41 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	lfp_average_for_csd
+	1	lfp_csd_average
+	3
+
+[Thu Nov 26 15:45:08 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr95_201117_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr95_201117_lfp_avg_nnm.hdf5
+    jobid: 11
+    wildcards: name=cr95_201117
+
+[Thu Nov 26 15:46:05 2020]
+Finished job 11.
+1 of 3 steps (33%) done
+
+[Thu Nov 26 15:46:05 2020]
+rule lfp_csd_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr29_190228_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr30_190305_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr31_190312_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr79_200211_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr90_201023_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr92_201029_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr93_201110_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr94_201112_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr95_201117_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.hdf5
+    jobid: 12
+
+[Thu Nov 26 15:46:16 2020]
+Finished job 12.
+2 of 3 steps (67%) done
+
+[Thu Nov 26 15:46:16 2020]
+localrule all:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr29_190228_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr30_190305_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr31_190312_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr79_200211_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr90_201023_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr92_201029_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr93_201110_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr94_201112_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr95_201117_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.hdf5
+    jobid: 0
+
+[Thu Nov 26 15:46:16 2020]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/log/2020-11-26T154508.002424.snakemake.log

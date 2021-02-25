@@ -1,0 +1,487 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	8	nnm_1_1_off_sp_lfp
+	8	nnm_1_1_on_sp_lfp
+	8	nnm_3_0_sp_lfp
+	9	nnm_3_1_off_sp_lfp
+	8	nnm_3_1_on_sp_lfp
+	1	spk_lfp_average
+	43
+
+[Mon Feb 22 15:33:17 2021]
+rule nnm_3_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr31_190312_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_off/cr31_190312_nnm_3_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_off/cr31_190312_nnm_3_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_off/cr31_190312_nnm_3_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_off/cr31_190312_nnm_3_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_off/cr31_190312_nnm_3_1_off_dfs.png
+    jobid: 28
+    wildcards: name=cr31_190312
+
+[Mon Feb 22 15:33:17 2021]
+rule spk_lfp_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr29_190228_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr30_190305_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr31_190312_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr33_190321_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr50_190724_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr79_200211_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr90_201023_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr92_201029_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr93_201110_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr94_201112_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr95_201117_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr96_201119_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr97_201201_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr98_201203_spk_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr101_201211_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/all_spk_lfp_avg_nnm.hdf5
+    jobid: 16
+
+[Mon Feb 22 15:33:17 2021]
+rule nnm_3_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr79_200211_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_off/cr79_200211_nnm_3_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_off/cr79_200211_nnm_3_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_off/cr79_200211_nnm_3_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_off/cr79_200211_nnm_3_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_off/cr79_200211_nnm_3_1_off_dfs.png
+    jobid: 43
+    wildcards: name=cr79_200211
+
+[Mon Feb 22 15:33:17 2021]
+rule nnm_1_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr31_190312_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_off/cr31_190312_nnm_1_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_off/cr31_190312_nnm_1_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_off/cr31_190312_nnm_1_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_off/cr31_190312_nnm_1_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_off/cr31_190312_nnm_1_1_off_dfs.png
+    jobid: 29
+    wildcards: name=cr31_190312
+
+[Mon Feb 22 15:33:25 2021]
+Finished job 16.
+1 of 43 steps (2%) done
+
+[Mon Feb 22 15:33:25 2021]
+rule nnm_3_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/all_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_on/all_nnm_3_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_on/all_nnm_3_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_on/all_nnm_3_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_on/all_nnm_3_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_on/all_nnm_3_1_on_dfs.png
+    jobid: 80
+    wildcards: name=all
+
+[Mon Feb 22 15:33:40 2021]
+Finished job 28.
+2 of 43 steps (5%) done
+
+[Mon Feb 22 15:33:40 2021]
+rule nnm_1_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/all_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_on/all_nnm_1_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_on/all_nnm_1_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_on/all_nnm_1_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_on/all_nnm_1_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_on/all_nnm_1_1_on_dfs.png
+    jobid: 81
+    wildcards: name=all
+
+[Mon Feb 22 15:33:41 2021]
+Finished job 29.
+3 of 43 steps (7%) done
+
+[Mon Feb 22 15:33:41 2021]
+rule nnm_3_0_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/all_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_0/all_nnm_3_0_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_0/all_nnm_3_0_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_0/all_nnm_3_0_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_0/all_nnm_3_0_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_0/all_nnm_3_0_dfs.png
+    jobid: 77
+    wildcards: name=all
+
+[Mon Feb 22 15:33:41 2021]
+Finished job 43.
+4 of 43 steps (9%) done
+
+[Mon Feb 22 15:33:41 2021]
+rule nnm_3_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/all_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_off/all_nnm_3_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_off/all_nnm_3_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_off/all_nnm_3_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_off/all_nnm_3_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_off/all_nnm_3_1_off_dfs.png
+    jobid: 78
+    wildcards: name=all
+
+[Mon Feb 22 15:33:49 2021]
+Finished job 80.
+5 of 43 steps (12%) done
+
+[Mon Feb 22 15:33:49 2021]
+rule nnm_1_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/all_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_off/all_nnm_1_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_off/all_nnm_1_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_off/all_nnm_1_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_off/all_nnm_1_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_off/all_nnm_1_1_off_dfs.png
+    jobid: 79
+    wildcards: name=all
+
+[Mon Feb 22 15:34:01 2021]
+Finished job 77.
+6 of 43 steps (14%) done
+
+[Mon Feb 22 15:34:01 2021]
+rule nnm_3_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr31_190312_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_on/cr31_190312_nnm_3_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_on/cr31_190312_nnm_3_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_on/cr31_190312_nnm_3_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_on/cr31_190312_nnm_3_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_on/cr31_190312_nnm_3_1_on_dfs.png
+    jobid: 30
+    wildcards: name=cr31_190312
+
+[Mon Feb 22 15:34:05 2021]
+Finished job 81.
+7 of 43 steps (16%) done
+
+[Mon Feb 22 15:34:05 2021]
+rule nnm_1_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr31_190312_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_on/cr31_190312_nnm_1_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_on/cr31_190312_nnm_1_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_on/cr31_190312_nnm_1_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_on/cr31_190312_nnm_1_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_on/cr31_190312_nnm_1_1_on_dfs.png
+    jobid: 31
+    wildcards: name=cr31_190312
+
+[Mon Feb 22 15:34:06 2021]
+Finished job 78.
+8 of 43 steps (19%) done
+
+[Mon Feb 22 15:34:06 2021]
+rule nnm_3_0_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr31_190312_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_0/cr31_190312_nnm_3_0_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_0/cr31_190312_nnm_3_0_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_0/cr31_190312_nnm_3_0_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_0/cr31_190312_nnm_3_0_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_0/cr31_190312_nnm_3_0_dfs.png
+    jobid: 27
+    wildcards: name=cr31_190312
+
+[Mon Feb 22 15:34:14 2021]
+Finished job 79.
+9 of 43 steps (21%) done
+
+[Mon Feb 22 15:34:14 2021]
+rule nnm_3_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr29_190228_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_on/cr29_190228_nnm_3_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_on/cr29_190228_nnm_3_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_on/cr29_190228_nnm_3_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_on/cr29_190228_nnm_3_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_on/cr29_190228_nnm_3_1_on_dfs.png
+    jobid: 20
+    wildcards: name=cr29_190228
+
+[Mon Feb 22 15:34:16 2021]
+Finished job 20.
+10 of 43 steps (23%) done
+
+[Mon Feb 22 15:34:16 2021]
+rule nnm_1_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr29_190228_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_on/cr29_190228_nnm_1_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_on/cr29_190228_nnm_1_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_on/cr29_190228_nnm_1_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_on/cr29_190228_nnm_1_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_on/cr29_190228_nnm_1_1_on_dfs.png
+    jobid: 21
+    wildcards: name=cr29_190228
+
+[Mon Feb 22 15:34:17 2021]
+Finished job 21.
+11 of 43 steps (26%) done
+
+[Mon Feb 22 15:34:17 2021]
+rule nnm_3_0_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr29_190228_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_0/cr29_190228_nnm_3_0_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_0/cr29_190228_nnm_3_0_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_0/cr29_190228_nnm_3_0_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_0/cr29_190228_nnm_3_0_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_0/cr29_190228_nnm_3_0_dfs.png
+    jobid: 17
+    wildcards: name=cr29_190228
+
+[Mon Feb 22 15:34:25 2021]
+Finished job 30.
+12 of 43 steps (28%) done
+
+[Mon Feb 22 15:34:25 2021]
+rule nnm_3_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr29_190228_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_off/cr29_190228_nnm_3_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_off/cr29_190228_nnm_3_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_off/cr29_190228_nnm_3_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_off/cr29_190228_nnm_3_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_off/cr29_190228_nnm_3_1_off_dfs.png
+    jobid: 18
+    wildcards: name=cr29_190228
+
+[Mon Feb 22 15:34:26 2021]
+Finished job 27.
+13 of 43 steps (30%) done
+
+[Mon Feb 22 15:34:26 2021]
+rule nnm_1_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr29_190228_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_off/cr29_190228_nnm_1_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_off/cr29_190228_nnm_1_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_off/cr29_190228_nnm_1_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_off/cr29_190228_nnm_1_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_off/cr29_190228_nnm_1_1_off_dfs.png
+    jobid: 19
+    wildcards: name=cr29_190228
+
+[Mon Feb 22 15:34:27 2021]
+Finished job 18.
+14 of 43 steps (33%) done
+
+[Mon Feb 22 15:34:27 2021]
+rule nnm_3_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr95_201117_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_off/cr95_201117_nnm_3_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_off/cr95_201117_nnm_3_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_off/cr95_201117_nnm_3_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_off/cr95_201117_nnm_3_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_off/cr95_201117_nnm_3_1_off_dfs.png
+    jobid: 58
+    wildcards: name=cr95_201117
+
+[Mon Feb 22 15:34:28 2021]
+Finished job 19.
+15 of 43 steps (35%) done
+
+[Mon Feb 22 15:34:28 2021]
+rule nnm_1_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr95_201117_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_off/cr95_201117_nnm_1_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_off/cr95_201117_nnm_1_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_off/cr95_201117_nnm_1_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_off/cr95_201117_nnm_1_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_off/cr95_201117_nnm_1_1_off_dfs.png
+    jobid: 59
+    wildcards: name=cr95_201117
+
+[Mon Feb 22 15:34:29 2021]
+Finished job 59.
+16 of 43 steps (37%) done
+
+[Mon Feb 22 15:34:29 2021]
+rule nnm_3_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr95_201117_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_on/cr95_201117_nnm_3_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_on/cr95_201117_nnm_3_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_on/cr95_201117_nnm_3_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_on/cr95_201117_nnm_3_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_on/cr95_201117_nnm_3_1_on_dfs.png
+    jobid: 60
+    wildcards: name=cr95_201117
+
+[Mon Feb 22 15:34:30 2021]
+Finished job 31.
+17 of 43 steps (40%) done
+
+[Mon Feb 22 15:34:30 2021]
+rule nnm_1_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr95_201117_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_on/cr95_201117_nnm_1_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_on/cr95_201117_nnm_1_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_on/cr95_201117_nnm_1_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_on/cr95_201117_nnm_1_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_on/cr95_201117_nnm_1_1_on_dfs.png
+    jobid: 61
+    wildcards: name=cr95_201117
+
+[Mon Feb 22 15:34:31 2021]
+Finished job 61.
+18 of 43 steps (42%) done
+
+[Mon Feb 22 15:34:31 2021]
+rule nnm_3_0_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr95_201117_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_0/cr95_201117_nnm_3_0_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_0/cr95_201117_nnm_3_0_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_0/cr95_201117_nnm_3_0_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_0/cr95_201117_nnm_3_0_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_0/cr95_201117_nnm_3_0_dfs.png
+    jobid: 57
+    wildcards: name=cr95_201117
+
+[Mon Feb 22 15:34:33 2021]
+Finished job 17.
+19 of 43 steps (44%) done
+
+[Mon Feb 22 15:34:33 2021]
+rule nnm_3_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr96_201119_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_on/cr96_201119_nnm_3_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_on/cr96_201119_nnm_3_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_on/cr96_201119_nnm_3_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_on/cr96_201119_nnm_3_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_on/cr96_201119_nnm_3_1_on_dfs.png
+    jobid: 65
+    wildcards: name=cr96_201119
+
+[Mon Feb 22 15:34:34 2021]
+Finished job 65.
+20 of 43 steps (47%) done
+
+[Mon Feb 22 15:34:34 2021]
+rule nnm_1_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr96_201119_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_on/cr96_201119_nnm_1_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_on/cr96_201119_nnm_1_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_on/cr96_201119_nnm_1_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_on/cr96_201119_nnm_1_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_on/cr96_201119_nnm_1_1_on_dfs.png
+    jobid: 66
+    wildcards: name=cr96_201119
+
+[Mon Feb 22 15:34:36 2021]
+Finished job 66.
+21 of 43 steps (49%) done
+
+[Mon Feb 22 15:34:36 2021]
+rule nnm_3_0_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr97_201201_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_0/cr97_201201_nnm_3_0_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_0/cr97_201201_nnm_3_0_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_0/cr97_201201_nnm_3_0_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_0/cr97_201201_nnm_3_0_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_0/cr97_201201_nnm_3_0_dfs.png
+    jobid: 67
+    wildcards: name=cr97_201201
+
+[Mon Feb 22 15:34:52 2021]
+Finished job 57.
+22 of 43 steps (51%) done
+
+[Mon Feb 22 15:34:52 2021]
+rule nnm_3_0_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr96_201119_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_0/cr96_201119_nnm_3_0_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_0/cr96_201119_nnm_3_0_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_0/cr96_201119_nnm_3_0_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_0/cr96_201119_nnm_3_0_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_0/cr96_201119_nnm_3_0_dfs.png
+    jobid: 62
+    wildcards: name=cr96_201119
+
+[Mon Feb 22 15:34:52 2021]
+Finished job 58.
+23 of 43 steps (53%) done
+
+[Mon Feb 22 15:34:52 2021]
+rule nnm_1_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr97_201201_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_off/cr97_201201_nnm_1_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_off/cr97_201201_nnm_1_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_off/cr97_201201_nnm_1_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_off/cr97_201201_nnm_1_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_off/cr97_201201_nnm_1_1_off_dfs.png
+    jobid: 69
+    wildcards: name=cr97_201201
+
+[Mon Feb 22 15:34:54 2021]
+Finished job 69.
+24 of 43 steps (56%) done
+
+[Mon Feb 22 15:34:54 2021]
+rule nnm_1_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr96_201119_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_off/cr96_201119_nnm_1_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_off/cr96_201119_nnm_1_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_off/cr96_201119_nnm_1_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_off/cr96_201119_nnm_1_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_off/cr96_201119_nnm_1_1_off_dfs.png
+    jobid: 64
+    wildcards: name=cr96_201119
+
+[Mon Feb 22 15:34:55 2021]
+Finished job 60.
+25 of 43 steps (58%) done
+
+[Mon Feb 22 15:34:55 2021]
+rule nnm_1_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr97_201201_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_on/cr97_201201_nnm_1_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_on/cr97_201201_nnm_1_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_on/cr97_201201_nnm_1_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_on/cr97_201201_nnm_1_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_on/cr97_201201_nnm_1_1_on_dfs.png
+    jobid: 71
+    wildcards: name=cr97_201201
+
+[Mon Feb 22 15:34:55 2021]
+Finished job 64.
+26 of 43 steps (60%) done
+
+[Mon Feb 22 15:34:55 2021]
+rule nnm_3_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr97_201201_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_off/cr97_201201_nnm_3_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_off/cr97_201201_nnm_3_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_off/cr97_201201_nnm_3_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_off/cr97_201201_nnm_3_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_off/cr97_201201_nnm_3_1_off_dfs.png
+    jobid: 68
+    wildcards: name=cr97_201201
+
+[Mon Feb 22 15:34:56 2021]
+Finished job 67.
+27 of 43 steps (63%) done
+
+[Mon Feb 22 15:34:56 2021]
+rule nnm_3_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr96_201119_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_off/cr96_201119_nnm_3_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_off/cr96_201119_nnm_3_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_off/cr96_201119_nnm_3_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_off/cr96_201119_nnm_3_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_off/cr96_201119_nnm_3_1_off_dfs.png
+    jobid: 63
+    wildcards: name=cr96_201119
+
+[Mon Feb 22 15:34:57 2021]
+Finished job 71.
+28 of 43 steps (65%) done
+[Mon Feb 22 15:34:57 2021]
+Finished job 68.
+29 of 43 steps (67%) done
+
+[Mon Feb 22 15:34:57 2021]
+rule nnm_3_0_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr30_190305_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_0/cr30_190305_nnm_3_0_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_0/cr30_190305_nnm_3_0_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_0/cr30_190305_nnm_3_0_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_0/cr30_190305_nnm_3_0_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_0/cr30_190305_nnm_3_0_dfs.png
+    jobid: 22
+    wildcards: name=cr30_190305
+
+[Mon Feb 22 15:34:57 2021]
+rule nnm_3_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr97_201201_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_on/cr97_201201_nnm_3_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_on/cr97_201201_nnm_3_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_on/cr97_201201_nnm_3_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_on/cr97_201201_nnm_3_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_on/cr97_201201_nnm_3_1_on_dfs.png
+    jobid: 70
+    wildcards: name=cr97_201201
+
+[Mon Feb 22 15:34:57 2021]
+Finished job 63.
+30 of 43 steps (70%) done
+
+[Mon Feb 22 15:34:57 2021]
+rule nnm_1_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr30_190305_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_off/cr30_190305_nnm_1_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_off/cr30_190305_nnm_1_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_off/cr30_190305_nnm_1_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_off/cr30_190305_nnm_1_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_off/cr30_190305_nnm_1_1_off_dfs.png
+    jobid: 24
+    wildcards: name=cr30_190305
+
+[Mon Feb 22 15:34:58 2021]
+Finished job 70.
+31 of 43 steps (72%) done
+
+[Mon Feb 22 15:34:58 2021]
+rule nnm_1_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr30_190305_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_on/cr30_190305_nnm_1_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_on/cr30_190305_nnm_1_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_on/cr30_190305_nnm_1_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_on/cr30_190305_nnm_1_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_on/cr30_190305_nnm_1_1_on_dfs.png
+    jobid: 26
+    wildcards: name=cr30_190305
+
+[Mon Feb 22 15:34:59 2021]
+Finished job 24.
+32 of 43 steps (74%) done
+
+[Mon Feb 22 15:34:59 2021]
+rule nnm_3_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr30_190305_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_off/cr30_190305_nnm_3_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_off/cr30_190305_nnm_3_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_off/cr30_190305_nnm_3_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_off/cr30_190305_nnm_3_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_off/cr30_190305_nnm_3_1_off_dfs.png
+    jobid: 23
+    wildcards: name=cr30_190305
+
+[Mon Feb 22 15:35:00 2021]
+Finished job 26.
+33 of 43 steps (77%) done
+
+[Mon Feb 22 15:35:00 2021]
+rule nnm_3_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr30_190305_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_on/cr30_190305_nnm_3_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_on/cr30_190305_nnm_3_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_on/cr30_190305_nnm_3_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_on/cr30_190305_nnm_3_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_on/cr30_190305_nnm_3_1_on_dfs.png
+    jobid: 25
+    wildcards: name=cr30_190305
+
+[Mon Feb 22 15:35:00 2021]
+Finished job 23.
+34 of 43 steps (79%) done
+
+[Mon Feb 22 15:35:00 2021]
+rule nnm_3_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr101_201211_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_on/cr101_201211_nnm_3_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_on/cr101_201211_nnm_3_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_on/cr101_201211_nnm_3_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_on/cr101_201211_nnm_3_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_on/cr101_201211_nnm_3_1_on_dfs.png
+    jobid: 75
+    wildcards: name=cr101_201211
+
+[Mon Feb 22 15:35:01 2021]
+Finished job 25.
+35 of 43 steps (81%) done
+
+[Mon Feb 22 15:35:01 2021]
+rule nnm_3_0_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr101_201211_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_0/cr101_201211_nnm_3_0_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_0/cr101_201211_nnm_3_0_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_0/cr101_201211_nnm_3_0_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_0/cr101_201211_nnm_3_0_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_0/cr101_201211_nnm_3_0_dfs.png
+    jobid: 72
+    wildcards: name=cr101_201211
+
+[Mon Feb 22 15:35:02 2021]
+Finished job 75.
+36 of 43 steps (84%) done
+
+[Mon Feb 22 15:35:02 2021]
+rule nnm_1_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr101_201211_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_off/cr101_201211_nnm_1_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_off/cr101_201211_nnm_1_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_off/cr101_201211_nnm_1_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_off/cr101_201211_nnm_1_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_off/cr101_201211_nnm_1_1_off_dfs.png
+    jobid: 74
+    wildcards: name=cr101_201211
+
+[Mon Feb 22 15:35:03 2021]
+Finished job 74.
+37 of 43 steps (86%) done
+
+[Mon Feb 22 15:35:03 2021]
+rule nnm_1_1_on_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr101_201211_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_1_1_on/cr101_201211_nnm_1_1_on_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_1_1_on/cr101_201211_nnm_1_1_on_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_1_1_on/cr101_201211_nnm_1_1_on_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_1_1_on/cr101_201211_nnm_1_1_on_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_1_1_on/cr101_201211_nnm_1_1_on_dfs.png
+    jobid: 76
+    wildcards: name=cr101_201211
+
+[Mon Feb 22 15:35:05 2021]
+Finished job 76.
+38 of 43 steps (88%) done
+
+[Mon Feb 22 15:35:05 2021]
+rule nnm_3_1_off_sp_lfp:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr101_201211_spk_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_1_off/cr101_201211_nnm_3_1_off_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_1_off/cr101_201211_nnm_3_1_off_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_1_off/cr101_201211_nnm_3_1_off_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_1_off/cr101_201211_nnm_3_1_off_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_1_off/cr101_201211_nnm_3_1_off_dfs.png
+    jobid: 73
+    wildcards: name=cr101_201211
+
+[Mon Feb 22 15:35:06 2021]
+Finished job 73.
+39 of 43 steps (91%) done
+[Mon Feb 22 15:35:12 2021]
+Finished job 62.
+40 of 43 steps (93%) done
+[Mon Feb 22 15:35:12 2021]
+Error in rule nnm_3_0_sp_lfp:
+    jobid: 72
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_0/cr101_201211_nnm_3_0_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_0/cr101_201211_nnm_3_0_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fps/nnm_3_0/cr101_201211_nnm_3_0_fps.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/fpl/nnm_3_0/cr101_201211_nnm_3_0_fpl.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/dfs/nnm_3_0/cr101_201211_nnm_3_0_dfs.png
+
+RuleException:
+CalledProcessError in line 61 of /home/bhc/codes/spike_snakemake/nnm_spike_lfp/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python /home/bhc/codes/spike_snakemake/nnm_spike_lfp/.snakemake/scripts/tmp4wo5lye6.nnm_3_0_sp_lfp.py' returned non-zero exit status 1.
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2319, in run_wrapper
+  File "/home/bhc/codes/spike_snakemake/nnm_spike_lfp/Snakefile", line 61, in __rule_nnm_3_0_sp_lfp
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/home/bhc/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2350, in run_wrapper
+Removing output files of failed job nnm_3_0_sp_lfp since they might be corrupted:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/spk/nnm_3_0/cr101_201211_nnm_3_0_spk.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_sp_lfp/lfp/nnm_3_0/cr101_201211_nnm_3_0_lfp.png
+[Mon Feb 22 15:35:14 2021]
+Finished job 22.
+41 of 43 steps (95%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nnm_spike_lfp/.snakemake/log/2021-02-22T153316.970841.snakemake.log

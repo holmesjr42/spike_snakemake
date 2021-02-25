@@ -36,21 +36,27 @@ val = pm.Setup(cond='nnm_3_0', cond2='tsp', mode=1, ccmap='csd')
 ccmap = val.values()[-1]
 # ccmap = 'jet_r'
 file_input = snakemake.input[0]
-# file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
-#              '/data/dataset/nn_lfp_avg/cr79_200211_nn_lfp_a.pk'
+# file_input = "/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021" \
+#              "/data/dataset/nn_lfp_avg/cr50_190724_nn_lfp_a.pk"
 
+animal = file_input.split('/')[-1].split('_')[0]
 sr_lfp = 1061.5 * pq.Hz  # for convert time into data coord in the data file
 ons = [0, 500]  # time window for onset response
 offs = [3000, 3500]  # time window for offset response
 on_p = pm.lfp_p(ons)  # convert onset time window range into the data coord
-off_p = pm.lfp_p(offs)  # convert offset time window range into the data coord
+off_p = pm.lfp_p(offs)  # convert '/home/bhc/OneDrive/Work/PhD/projects
+# /zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr50_190724_nn_lfp_a.pk
+# 'offset time
+# window range into the data coord
 
 with open(file_input, 'rb') as dat:
     datas = pickle.load(dat)
 
-# la[0] is notched noise and la[1] is white noise
-la = np.array([datas['la']['nn_3_1'], datas['la']['nn_wn_3_1']]) * pq.mV
 
+# la[0] is notched noise and la[1] is white noise
+la = np.array([datas['la']['nn_3_1']['70'], datas['la']['nn_wn_3_1']['70']
+               ]) * pq.microvolt
+la.units = pq.mV
 # converting lfp data format to neo analogsignal to use it with icsd.py
 lfp_data1 = neo.core.AnalogSignal(la[0].T, sampling_rate=sr_lfp)
 lfp_data2 = neo.core.AnalogSignal(la[1].T, sampling_rate=sr_lfp)
@@ -68,16 +74,16 @@ std_input_n = {
     'lfp': lfp_data1,
     'coord_electrode': coord,
     'sigma': sigma,
-    'f_type': 'rappel',
-    'f_order': 3,
+    'f_type': 'gaussian',
+    'f_order': (3, 1),
     }
 
 std_input_w = {
     'lfp': lfp_data2,
     'coord_electrode': coord,
     'sigma': sigma,
-    'f_type': 'rappel',
-    'f_order': 3,
+    'f_type': 'gaussian',
+    'f_order': (3, 1),
     }
 
 std1 = icsd.estimate_csd(**std_input_n)
@@ -125,7 +131,7 @@ def csd_plot(zz, ax, image, sec='whole', cmap=ccmap):
     else:
         print('you did not choose section for csd.')
         sys.exit()
-    sig = zz[:, pi:pf] * 10 ** (-3)
+    sig = zz[:, pi:pf]
     img = ax.imshow(
         sig, cmap=cmap, aspect=(pf - pi) * 1e-3 / 1500,
         extent=[ti * 1e-3, tf * 1e-3, -1500, 0], interpolation='gaussian')
@@ -183,7 +189,7 @@ def cbar_t(cbar, type):
             )
     elif type == 'csd':
         cbar.ax.set_title(
-            r'$\times$10$^{-3}$' + ' ' + r'mV/$mm^{2}$',
+            r'mV/$mm^{2}$',
             fontsize=9
             )
 
@@ -236,7 +242,7 @@ for i in range(4):
     p_axes[1, i].set_xlabel('t [s]')
     if i == 0 or i == 1:
         p_axes[i, 0].set_ylabel('Depth' + ' [' + r'$\mu$' + 'm' + ']')
-    if i == 3:
+    if i == 1 or i == 3:
         cbar_pl = plt.colorbar(pl_img[i], cax=axins_pl,
                                orientation='vertical', format='%.2f')
         cbar_pc = plt.colorbar(pc_img[i], cax=axins_pc,
@@ -261,8 +267,11 @@ p_axes[1, 0].text(-0.2, -750, 'CSD', ha='center', va='center',
 # normalize
 def norm_color(img, types, ratio=0.6):
     if types == 'lfp':
-        vmin = min(ims.get_array().min() for ims in img) * ratio
-        vmax = max(ims.get_array().max() for ims in img) * ratio
+        # vmin = min(ims.get_array().min() for ims in img) * ratio
+        # vmax = max(ims.get_array().max() for ims in img) * ratio
+        vmax = max(max(ims.get_array().max() for ims in img), np.abs(
+            min(ims.get_array().min() for ims in img))) * ratio
+        vmin = (-1) * vmax
         norm = colors.Normalize(vmin=vmin, vmax=vmax)
     elif types == 'csd':
         vmax = max(max(ims.get_array().max() for ims in img), np.abs(min(
@@ -277,8 +286,12 @@ def norm_color(img, types, ratio=0.6):
         ims.set_norm(norm)
 
 
-norm_color(pl_img, 'lfp')
-norm_color(pc_img, 'csd')
+norm_color(pl_img[0:2], 'lfp')
+norm_color(pc_img[0:2], 'csd')
+norm_color(pl_img[2:4], 'lfp')
+norm_color(pc_img[2:4], 'csd')
+norm_color(el_img, 'lfp')
+norm_color(ec_img, 'csd')
 for i in [cbar_el, cbar_ec, cbar_pl, cbar_pc]:
     i.ax.locator_params(nbins=5)
 
@@ -287,12 +300,14 @@ for i in [cbar_el, cbar_ec, cbar_pl, cbar_pc]:
 
 e_fig.savefig(snakemake.output.whole, dpi=300)
 p_fig.savefig(snakemake.output.part, dpi=300)
+
 # p_fig.savefig('testing_1.png', dpi=300)
 # e_fig.savefig('testing_2.png', dpi=300)
 
 # plt.show()
 
-# plt.show()
+# plt.show()    for i in [0, 2]:
+
 # df = pd.DataFrame(f_csd)
 # df2 = pd.DataFrame(r_csd)
 # df.to_csv('f_csd.csv')

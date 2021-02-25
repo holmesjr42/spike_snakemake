@@ -1,0 +1,54 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	4	csd_nnm_1_1
+	4	csd_nnm_3_0_05
+	4	csd_nnm_3_1
+	4	csd_nnm_hef
+	4	csd_nnm_lef
+	21
+
+[Fri Jul 17 14:21:37 2020]
+rule csd_nnm_lef:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr35_190403_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_lef/csd_cr35_190403_nnm_lef.png
+    jobid: 33
+    wildcards: name=cr35_190403
+
+[Fri Jul 17 14:21:37 2020]
+rule csd_nnm_3_1:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr35_190403_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr35_190403_nnm_3_1.png
+    jobid: 40
+    wildcards: name=cr35_190403
+
+[Fri Jul 17 14:21:37 2020]
+rule csd_nnm_hef:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr35_190403_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_hef/csd_cr35_190403_nnm_hef.png
+    jobid: 26
+    wildcards: name=cr35_190403
+
+[Fri Jul 17 14:21:38 2020]
+Error in rule csd_nnm_3_1:
+    jobid: 40
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr35_190403_nnm_3_1.png
+
+RuleException:
+CalledProcessError in line 72 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmpy5danhuy.csd_nnm_3_1.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 72, in __rule_csd_nnm_3_1
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+[Fri Jul 17 14:21:41 2020]
+Finished job 26.
+1 of 21 steps (5%) done
+[Fri Jul 17 14:21:42 2020]
+Finished job 33.
+2 of 21 steps (10%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/.snakemake/log/2020-07-17T142137.440245.snakemake.log

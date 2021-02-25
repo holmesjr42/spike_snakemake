@@ -1,0 +1,103 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	13	nnm_1_1_off_sp_lfp
+	13	nnm_1_1_on_sp_lfp
+	13	nnm_3_0_sp_lfp
+	13	nnm_3_1_off_sp_lfp
+	13	nnm_3_1_on_sp_lfp
+	1	spk_lfp_average
+	12	spk_lfp_session_average
+	79
+
+[Thu Feb 18 14:58:06 2021]
+rule spk_lfp_session_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr31_190312_lfp_fil.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr31_190312_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr31_190312_spk_lfp_avg_nnm.hdf5
+    jobid: 3
+    wildcards: name=cr31_190312
+
+[Thu Feb 18 14:58:06 2021]
+rule spk_lfp_session_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr50_190724_lfp_fil.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr50_190724_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr50_190724_spk_lfp_avg_nnm.hdf5
+    jobid: 5
+    wildcards: name=cr50_190724
+
+[Thu Feb 18 14:58:06 2021]
+rule spk_lfp_session_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr33_190321_lfp_fil.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr33_190321_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr33_190321_spk_lfp_avg_nnm.hdf5
+    jobid: 4
+    wildcards: name=cr33_190321
+
+[Thu Feb 18 14:58:06 2021]
+rule spk_lfp_session_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr79_200211_lfp_fil.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr79_200211_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr79_200211_spk_lfp_avg_nnm.hdf5
+    jobid: 6
+    wildcards: name=cr79_200211
+
+[Thu Feb 18 14:58:55 2021]
+Error in rule spk_lfp_session_average:
+    jobid: 3
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr31_190312_spk_lfp_avg_nnm.hdf5
+
+RuleException:
+CalledProcessError in line 36 of /home/bhc/codes/spike_snakemake/nnm_spike_lfp/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python /home/bhc/codes/spike_snakemake/nnm_spike_lfp/.snakemake/scripts/tmp78o36dnq.spk_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2319, in run_wrapper
+  File "/home/bhc/codes/spike_snakemake/nnm_spike_lfp/Snakefile", line 36, in __rule_spk_lfp_session_average
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/home/bhc/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2350, in run_wrapper
+[Thu Feb 18 14:58:57 2021]
+Error in rule spk_lfp_session_average:
+    jobid: 4
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr33_190321_spk_lfp_avg_nnm.hdf5
+
+RuleException:
+CalledProcessError in line 36 of /home/bhc/codes/spike_snakemake/nnm_spike_lfp/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python /home/bhc/codes/spike_snakemake/nnm_spike_lfp/.snakemake/scripts/tmpu22o5mz4.spk_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2319, in run_wrapper
+  File "/home/bhc/codes/spike_snakemake/nnm_spike_lfp/Snakefile", line 36, in __rule_spk_lfp_session_average
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/home/bhc/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2350, in run_wrapper
+[Thu Feb 18 14:58:59 2021]
+Error in rule spk_lfp_session_average:
+    jobid: 5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr50_190724_spk_lfp_avg_nnm.hdf5
+
+RuleException:
+CalledProcessError in line 36 of /home/bhc/codes/spike_snakemake/nnm_spike_lfp/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python /home/bhc/codes/spike_snakemake/nnm_spike_lfp/.snakemake/scripts/tmp9400x6qj.spk_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2319, in run_wrapper
+  File "/home/bhc/codes/spike_snakemake/nnm_spike_lfp/Snakefile", line 36, in __rule_spk_lfp_session_average
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/home/bhc/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2350, in run_wrapper
+[Thu Feb 18 14:59:02 2021]
+Error in rule spk_lfp_session_average:
+    jobid: 6
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_spk_lfp_avg/cr79_200211_spk_lfp_avg_nnm.hdf5
+
+RuleException:
+CalledProcessError in line 36 of /home/bhc/codes/spike_snakemake/nnm_spike_lfp/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python /home/bhc/codes/spike_snakemake/nnm_spike_lfp/.snakemake/scripts/tmpqmyrn1v0.spk_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2319, in run_wrapper
+  File "/home/bhc/codes/spike_snakemake/nnm_spike_lfp/Snakefile", line 36, in __rule_spk_lfp_session_average
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/home/bhc/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2350, in run_wrapper
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nnm_spike_lfp/.snakemake/log/2021-02-18T145806.273229.snakemake.log

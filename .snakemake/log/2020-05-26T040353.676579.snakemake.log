@@ -1,0 +1,3 @@
+NameError in line 1 of /home/bhc/codes/spike_snakemake/Snakefile:
+name 'cr31_190312' is not defined
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 1, in <module>

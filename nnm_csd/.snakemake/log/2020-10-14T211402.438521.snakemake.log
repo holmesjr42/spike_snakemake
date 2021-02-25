@@ -1,0 +1,44 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	csd_nnm_1_1
+	3	csd_nnm_3_0
+	2	csd_nnm_3_1
+	1	lfp_average_for_csd
+	1	lfp_csd_average
+	10
+
+[Wed Oct 14 21:14:02 2020]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr50_190724_nnm_3_0.png
+    jobid: 13
+    wildcards: name=cr50_190724
+
+[Wed Oct 14 21:14:02 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr87_201013_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr87_201013_lfp_avg_nnm.hdf5
+    jobid: 7
+    wildcards: name=cr87_201013
+
+[Wed Oct 14 21:14:04 2020]
+Error in rule csd_nnm_3_0:
+    jobid: 13
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr50_190724_nnm_3_0.png
+
+RuleException:
+CalledProcessError in line 45 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/scripts/tmpy0nqnwne.csd_nnm_3_0.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/nnm_csd/Snakefile", line 45, in __rule_csd_nnm_3_0
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+[Wed Oct 14 21:15:20 2020]
+Finished job 7.
+1 of 10 steps (10%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/log/2020-10-14T211402.438521.snakemake.log

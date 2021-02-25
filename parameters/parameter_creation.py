@@ -1,5 +1,6 @@
 import numpy as np
 import pickle
+
 # remove cr35
 # import scipy.fftpack as ft
 
@@ -30,87 +31,177 @@ nan = np.nan
 
 f_path = '/home/bhc/codes/spikes_classics/parameters'
 
-d_animal = {'nnm_3_0': [[0, 1, 2, 3, 4, 5], [nan, nan, 2, 3, 4, 5],
-                        [0, 1, 2, 3, 4, 5], [nan, 1, 2, 3, 4, 5],
-                        [0, 1, 2, 3, 5, nan]],
-            'nnm_3_0_05': [[0, nan, 2, 3, 4, 5], [0, nan, 2, 3, 4, 5],
-                           [0, nan, 2, 3, 4, nan], [0, nan, 2, 3, 4, 5],
-                           [0, nan, 2, 3, 4, nan]],
-            'nnm_hef': [[0, 1, 2, 3, 4, 5], [0, nan, 2, 3, 4, 5],
-                        [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5],
-                        [nan, nan, nan, nan, 5, nan]],
-            'nnm_lef': [[0, nan, nan, 3, 4, 5], [0, nan, nan, 3, 4, 5],
-                        [0, nan, nan, 3, 4, 5], [0, nan, nan, 3, 4, 5],
-                        [nan, nan, nan, nan, 5, nan]],
-            'nnm_3_1': [[0, nan, 2, 3, 4, 5], [0, nan, 2, 3, 4, 5],
-                        [0, nan, 2, 3, 4, 5], [0, nan, 2, 3, 4, 5]],
-            'nnm_1_1': [[0, nan, 2, 3, 4, 5], [0, nan, 2, 3, 4, 5],
-                        [0, nan, 2, 3, 4, 5], [0, nan, 2, 3, 4, 5],
-                        [nan, nan, nan, nan, nan, 4, nan]],
-            'nnm_wn_3_0': [[0, nan, 2, nan, 4, nan],
-                           [nan, nan, 2, 3, 4, nan],
-                           [nan, nan, nan, 3, 4, nan],
-                           [nan, nan, nan, 3, nan, nan]],
-            'nnm_wn_3_1': [[nan, nan, 2, 3, 4, 5],
-                           [nan, nan, nan, 3, 4, 5],
-                           [nan, nan, nan, 3, 4, 5],
-                           [nan, nan, nan, 3, 4, 5]],
-            'nnm_wn_1_1': [[nan, nan, 2, 3, 4, 5],
-                           [nan, nan, nan, 3, 4, 5],
-                           [nan, nan, nan, 3, 4, nan],
-                           [nan, nan, nan, 3, 4, 5]]
+d_animal = {'nnm_3_0': [[0, 1, 2, 3, 4, 5, 6, nan,
+                         nan, 9, 10, 11, 12, nan, nan, nan, nan],
+                        [nan, nan, 2, 3, 4, 5, nan, nan,
+                         nan, 9, 10, 11, 12, nan, nan, nan, nan],
+                        [0, 1, 2, 3, 4, 5, 6, nan,
+                         nan, 9, 10, 11, 12, nan, nan, nan, nan],
+                        [nan, 1, 2, 3, 4, 5, 6, nan,
+                         nan, 9, 10, 11, 12, nan, nan, nan, nan],
+                        [0, 1, 2, 3, 4, 5, nan, nan,
+                         nan, 9, 10, 11, 12, nan, nan, nan, nan]
+                        ],
+            # 'nnm_3_0_05': [[0, nan, 2, 3, 4, 5, nan, nan, nan, 9],
+            #                [0, nan, 2, 3, 4, 5, nan, nan, nan, 9],
+            #                [0, nan, 2, 3, 4, nan, nan, nan, nan, 9],
+            #                [0, nan, 2, 3, 4, 5, nan, nan, nan, 9],
+            #                [0, nan, 2, 3, 4, nan, nan, nan, nan, 9]
+            #                ],
+            # 'nnm_hef': [[0, 1, 2, 3, 4, 5], [0, nan, 2, 3, 4, 5],
+            #             [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5],
+            #             [nan, nan, nan, nan, 5, nan]],
+            # 'nnm_lef': [[0, nan, nan, 3, 4, 5], [0, nan, nan, 3, 4, 5],
+            #             [0, nan, nan, 3, 4, 5], [0, nan, nan, 3, 4, 5],
+            #             [nan, nan, nan, nan, 5, nan]],
+            'nnm_3_1': [[0, nan, 2, 3, 4, 5, 6, nan,
+                         nan, 9, 10, nan, nan, nan, nan, nan, nan],
+                        [0, nan, 2, 3, 4, 5, 6, nan,
+                         nan, 9, 10, nan, nan, nan, nan, nan, nan],
+                        [0, nan, 2, 3, 4, 5, 6, nan,
+                         nan, 9, 10, nan, nan, nan, nan, nan, nan],
+                        [0, nan, 2, 3, 4, 5, 6, nan,
+                         nan, 9, 10, nan, nan, nan, nan, nan, nan]
+                        ],
+            'nnm_1_1': [[0, nan, 2, 3, 4, 5, 6, nan,
+                         nan, 9, nan, nan, nan, nan, nan, nan, nan],
+                        [0, nan, 2, 3, 4, 5, 6, nan,
+                         nan, 9, nan, nan, nan, nan, nan, nan, nan],
+                        [0, nan, 2, 3, 4, 5, 6, nan,
+                         nan, 9, nan, nan, nan, nan, nan, nan, nan],
+                        [0, nan, 2, 3, 4, 5, 6, nan,
+                         nan, 9, nan, nan, nan, nan, nan, nan, nan]
+                        ],
+            # 'nnm_wn_3_0': [[0, nan, 2, nan, 4, nan],
+            #                [nan, nan, 2, 3, 4, nan],
+            #                [nan, nan, nan, 3, 4, nan],
+            #                [nan, nan, nan, 3, nan, nan]],
+            'nnm_wn_3_1': [[nan, nan, 2, 3, 4, 5, 6, nan,
+                            nan, 9, nan, nan, nan, nan, nan, nan, nan],
+                           [nan, nan, nan, 3, 4, 5, 6, nan,
+                            nan, 9, 10, nan, nan, nan, nan, nan, nan],
+                           [nan, nan, nan, 3, 4, 5, 6, nan,
+                            nan, 9, 10, nan, nan, nan, nan, nan, nan],
+                           [nan, nan, nan, 3, 4, 5, 6, nan,
+                            nan, 9, 10, nan, nan, nan, nan, nan, nan]
+                           ],
+            'nnm_wn_1_1': [[nan, nan, 2, 3, 4, 5, 6, nan,
+                            nan, 9, nan, nan, nan, nan, nan, nan, nan],
+                           [nan, nan, nan, 3, 4, 5, 6, nan,
+                            nan, 9, nan, nan, nan, nan, nan, nan, nan],
+                           [nan, nan, nan, 3, 4, nan, 6, nan,
+                            nan, 9, nan, nan, nan, nan, nan, nan, nan],
+                           [nan, nan, nan, 3, 4, 5, 6, nan,
+                            nan, 9, nan, nan, nan, nan, nan, nan, nan]
+                           ]
             }
 
-datas = {'nnm_3_0': [[0, 0, 0, 0, 0, 0], [nan, nan, 1, 1, 1, 1],
-                     [1, 1, 2, 2, 2, 2], [nan, 2, 3, 3, 3, 3],
-                     [2, 3, 4, 4, 4, nan]],
-         'nnm_3_0_05': [[0, nan, 0, 0, 0, 0], [1, nan, 1, 1, 1, 1],
-                        [2, nan, 2, 2, 2, nan], [3, nan, 3, 3, 3, 2],
-                        [4, nan, 4, 4, 4, nan]],
-         'nnm_hef': [[0, 0, 0, 0, 0, 0], [1, nan, 1, 1, 1, 1],
-                     [2, 1, 2, 2, 2, 2], [3, 2, 3, 3, 3, 3],
-                     [nan, nan, nan, nan, 4, nan]],
-         'nnm_lef': [[0, nan, nan, 0, 0, 0], [1, nan, nan, 1, 1, 1],
-                     [2, nan, nan, 2, 2, 2], [3, nan, nan, 3, 3, 3],
-                     [nan, nan, nan, nan, 4, nan]],
-         'nnm_3_1': [[0, nan, 0, 0, 0, 0], [1, nan, 1, 1, 1, 1],
-                     [2, nan, 2, 2, 2, 2], [3, nan, 3, 3, 3, 3]],
-         'nnm_1_1': [[0, nan, 0, 0, 0, 0], [1, nan, 1, 1, 1, 1],
-                     [2, nan, 2, 2, 2, 2], [3, nan, 3, 3, 3, 3],
-                     [nan, nan, nan, nan, 4, nan]],
-         'nnm_wn_3_0': [[0, nan, 0, 0, nan], [nan, nan, 1, 0, 1, nan],
-                        [nan, nan, nan, 1, 2, nan],
-                        [nan, nan, nan, 2, nan, nan]],
-         'nnm_wn_3_1': [[nan, nan, 0, 0, 0, 0], [nan, nan, nan, 1, 1, 1],
-                        [nan, nan, nan, 2, 2, 2],
-                        [nan, nan, nan, 3, 3, 3]],
-         'nnm_wn_1_1': [[nan, nan, 0, 0, 0, 0],
-                        [nan, nan, nan, 1, 1, 1],
-                        [nan, nan, nan, 2, 2, nan],
-                        [nan, nan, nan, 3, 3, 2]]
+datas = {'nnm_3_0': [[0, 0, 0, 0, 0, 0, 0, nan,
+                      nan, 0, 0, 0, 0, nan, nan, 0, 0],
+                     [nan, nan, 1, 1, 1, 1, nan, nan,
+                      nan, 1, 1, 1, 1, nan, nan, nan, nan],
+                     [1, 1, 2, 2, 2, 2, 2, nan,
+                      nan, 2, 2, 2, 2, nan, nan, nan, nan],
+                     [nan, 2, 3, 3, 3, 3, 3, nan,
+                      nan, 3, 3, 3, 3, nan, nan, nan, nan]
+                     ],
+         # 'nnm_3_0_05': [[0, nan, 0, 0, 0, 0, nan, nan, nan, nan],
+         #                [1, nan, 1, 1, 1, 1, nan, nan, nan, nan],
+         #                [2, nan, 2, 2, 2, nan, nan, nan, nan, nan],
+         #                [3, nan, 3, 3, 3, 2, nan, nan, nan, nan],
+         #                [4, nan, 4, 4, 4, nan, nan, nan, nan, nan]
+         #                ],
+         # 'nnm_hef': [[0, 0, 0, 0, 0, 0], [1, nan, 1, 1, 1, 1],
+         #             [2, 1, 2, 2, 2, 2], [3, 2, 3, 3, 3, 3],
+         #             [nan, nan, nan, nan, 4, nan]],
+         # 'nnm_lef': [[0, nan, nan, 0, 0, 0], [1, nan, nan, 1, 1, 1],
+         #             [2, nan, nan, 2, 2, 2], [3, nan, nan, 3, 3, 3],
+         #             [nan, nan, nan, nan, 4, nan]],
+         'nnm_3_1': [[0, nan, 0, 0, 0, 0, 0, nan,
+                      nan, 0, 0, nan, nan, nan, nan, nan, nan],
+                     [1, nan, 1, 1, 1, 1, 1, nan,
+                      nan, 1, 1, nan, nan, nan, nan, nan, nan],
+                     [2, nan, 2, 2, 2, 2, 2, nan,
+                      nan, 2, 2, nan, nan, nan, nan, nan, nan],
+                     [3, nan, 3, 3, 3, 3, 3, nan,
+                      nan, 3, 3, nan, nan, nan, nan, nan, nan]
+                     ],
+         'nnm_1_1': [[0, nan, 0, 0, 0, 0, 0, nan,
+                      nan, 0, nan, nan, nan, nan, nan, nan, nan],
+                     [1, nan, 1, 1, 1, 1, 1, nan,
+                      nan, 1, nan, nan, nan, nan, nan, nan, nan],
+                     [2, nan, 2, 2, 2, 2, 2, nan,
+                      nan, 2, nan, nan, nan, nan, nan, nan, nan],
+                     [3, nan, 3, 3, 3, 3, 3, nan,
+                      nan, 3, nan, nan, nan, nan, nan, nan, nan],
+                     ],
+         # 'nnm_wn_3_0': [[0, nan, 0, 0, nan], [nan, nan, 1, 0, 1, nan],
+         #                [nan, nan, nan, 1, 2, nan],
+         #                [nan, nan, nan, 2, nan, nan]],
+         'nnm_wn_3_1': [[nan, nan, 0, 0, 0, 0, 0, nan,
+                         nan, 0, nan, nan, nan, nan, nan, nan, nan],
+                        [nan, nan, nan, 1, 1, 1, 1, nan,
+                         nan, 1, 1, nan, nan, nan, nan, nan, nan],
+                        [nan, nan, nan, 2, 2, 2, 2, nan,
+                         nan, 2, 2, nan, nan, nan, nan, nan, nan],
+                        [nan, nan, nan, 3, 3, 3, 3, nan,
+                         nan, 3, 3, nan, nan, nan, nan, nan, nan]
+                        ],
+         'nnm_wn_1_1': [[nan, nan, 0, 0, 0, 0, 0, nan,
+                         nan, 0, nan, nan, nan, nan, nan, nan, nan],
+                        [nan, nan, nan, 1, 1, 1, 1, nan,
+                         nan, 1, nan, nan, nan, nan, nan, nan, nan],
+                        [nan, nan, nan, 2, 2, nan, 2, nan,
+                         nan, 2, nan, nan, nan, nan, nan, nan, nan],
+                        [nan, nan, nan, 3, 3, 2, 3, nan,
+                         nan, 3, nan, nan, nan, nan, nan, nan, nan]
+                        ]
          }
 
-
 d_strf = {'nnm_3_0': ['strf_1', 'strf_1', 'strf_1', 'strf_1', 'strf_4',
-                      'strf_6'],
-          'nnm_3_0_05': ['strf_1', nan, 'strf_1', 'strf_2', 'strf_3',
-                         'strf_6'],
-          'nnm_hef': ['strf_1', 'strf_1', 'strf_2', 'strf_4',
-                      'strf_1', 'strf_5'],
-          'nnm_lef': ['strf_1', 'strf_1', 'strf_2', 'strf_4',
-                      'strf_2', 'strf_5'],
-          'nnm_3_1': ['strf_1', nan, 'strf_1', 'strf_2',
-                      'strf_5', 'strf_3'],
-          'nnm_1_1': ['strf_1', nan, 'strf_2', 'strf_4',
-                      'strf_6', 'strf_4']
+                      'strf_6', 'strf_1', nan, nan, 'strf_1',
+                      'strf_1', 'strf_1', 'strf_1', nan, nan,
+                      nan, nan],
+          # 'nnm_3_0_05': ['strf_1', nan, 'strf_1', 'strf_2', 'strf_3',
+          #                'strf_6', nan, nan, nan
+          #                ],
+          # 'nnm_hef': ['strf_1', 'strf_1', 'strf_2', 'strf_4',
+          #             'strf_1', 'strf_5'],
+          # 'nnm_lef': ['strf_1', 'strf_1', 'strf_2', 'strf_4',
+          #             'strf_2', 'strf_5'],
+          'nnm_3_1': ['strf_1', nan, 'strf_1', 'strf_2', 'strf_5',
+                      'strf_3', 'strf_2', nan, nan, 'strf_2',
+                      'strf_2', nan, nan, nan, nan,
+                      nan, nan],
+          'nnm_1_1': ['strf_1', nan, 'strf_2', 'strf_4', 'strf_6',
+                      'strf_4', 'strf_3', nan, nan, 'strf_3',
+                      nan, nan, nan, nan, nan,
+                      nan, nan]
           }
 
 # best f for each animal
-bf = [6727, 9514, 8724, 5657, 7336, 8000]
+bf = [6727, 9514, 8724, 5657, 7336,
+      8000, 2594, 20749, 1834, 8724,
+      8000, 2378, 8000, 5657, 16000,
+      16000, 6727]
 
 # activity time window for each animal
 # tw = [[21, 35], [21, 28], [21, 30], [17, 25], [18, 31], [15, 25]]
-tw = [[22, 30], [21, 25], [20, 24], [18, 23], [13, 20], [16, 20]]
+# tw = [[22, 30], [21, 25], [20, 24], [18, 23], [13, 20], [16, 20]]
+# I use 10 - 30 ms time window for all of my animals
+
+tw = [
+    [22, 30], [21, 25], [20, 24], [18, 23], [13, 20],
+    [16, 20], [16, 20], nan, nan, [27, 40],
+    [20, 30], [14, 16], [29, 38], nan, nan,
+    nan, nan
+    ]
+
+# tw = [
+#     [10, 30], [10, 30], [10, 30], [10, 30], [10, 30],
+#     [10, 30], [10, 30], nan, nan, [10, 30]
+#     ]
+
 lv = ['70', '60', '50', '40']
 
 coord = {'animal': d_animal, 'datas': datas, 'bf': bf, 'tw': tw, 'lv': lv,

@@ -1,0 +1,99 @@
+Migrating .snakemake folder to new format...
+Migration complete
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	8	csd_nnm_3_0
+	1	lfp_csd_average
+	10
+
+[Thu Nov 26 14:28:54 2020]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr79_200211_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr79_200211_nnm_3_0.png
+    jobid: 14
+    wildcards: name=cr79_200211
+
+[Thu Nov 26 14:28:54 2020]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr50_190724_nnm_3_0.png
+    jobid: 13
+    wildcards: name=cr50_190724
+
+[Thu Nov 26 14:28:54 2020]
+rule lfp_csd_average:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr29_190228_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr30_190305_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr31_190312_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr79_200211_lfp_avg_nnm.hdf5, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr90_201023_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.hdf5
+    jobid: 8
+
+[Thu Nov 26 14:28:54 2020]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr33_190321_nnm_3_0.png
+    jobid: 12
+    wildcards: name=cr33_190321
+
+[Thu Nov 26 14:28:56 2020]
+Error in rule csd_nnm_3_0:
+    jobid: 14
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr79_200211_nnm_3_0.png
+
+[Thu Nov 26 14:28:56 2020]
+Error in rule csd_nnm_3_0:
+    jobid: 13
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr50_190724_nnm_3_0.png
+
+[Thu Nov 26 14:28:56 2020]
+Error in rule csd_nnm_3_0:
+    jobid: 12
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr33_190321_nnm_3_0.png
+
+RuleException:
+CalledProcessError in line 45 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/scripts/tmphkb_cayl.csd_nnm_3_0.py' returned non-zero exit status 1.
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2318, in run_wrapper
+  File "/home/bhc/codes/spike_snakemake/nnm_csd/Snakefile", line 45, in __rule_csd_nnm_3_0
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in _callback
+  File "/home/bhc/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 546, in cached_or_run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2349, in run_wrapper
+RuleException:
+CalledProcessError in line 45 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/scripts/tmp8l79gls0.csd_nnm_3_0.py' returned non-zero exit status 1.
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2318, in run_wrapper
+  File "/home/bhc/codes/spike_snakemake/nnm_csd/Snakefile", line 45, in __rule_csd_nnm_3_0
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in _callback
+  File "/home/bhc/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 546, in cached_or_run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2349, in run_wrapper
+RuleException:
+CalledProcessError in line 45 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/scripts/tmpn2dsr7zt.csd_nnm_3_0.py' returned non-zero exit status 1.
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2318, in run_wrapper
+  File "/home/bhc/codes/spike_snakemake/nnm_csd/Snakefile", line 45, in __rule_csd_nnm_3_0
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in _callback
+  File "/home/bhc/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 546, in cached_or_run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2349, in run_wrapper
+[Thu Nov 26 14:28:56 2020]
+Error in rule lfp_csd_average:
+    jobid: 8
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.hdf5
+
+RuleException:
+CalledProcessError in line 35 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/scripts/tmppig1h61c.nnm_csd_average.py' returned non-zero exit status 1.
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2318, in run_wrapper
+  File "/home/bhc/codes/spike_snakemake/nnm_csd/Snakefile", line 35, in __rule_lfp_csd_average
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in _callback
+  File "/home/bhc/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 546, in cached_or_run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2349, in run_wrapper
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/log/2020-11-26T142854.150280.snakemake.log

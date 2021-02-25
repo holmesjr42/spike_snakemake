@@ -1,0 +1,46 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	7	lfp_average_for_csd
+	8
+
+[Wed Jul  8 19:50:04 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr33_190321_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.pk
+    jobid: 4
+    wildcards: name=cr33_190321
+
+[Wed Jul  8 19:50:04 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr50_190724_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+    jobid: 6
+    wildcards: name=cr50_190724
+
+[Wed Jul  8 19:50:40 2020]
+Error in rule lfp_average_for_csd:
+    jobid: 4
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.pk
+
+RuleException:
+CalledProcessError in line 14 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmpexk3z0rc.nnm_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 14, in __rule_lfp_average_for_csd
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Terminating processes on user request, this might take some time.
+[Wed Jul  8 19:51:12 2020]
+Error in rule lfp_average_for_csd:
+    jobid: 6
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+
+RuleException:
+CalledProcessError in line 14 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmp5a96zuzi.nnm_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 14, in __rule_lfp_average_for_csd
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Complete log: /home/bhc/codes/spike_snakemake/.snakemake/log/2020-07-08T195004.214014.snakemake.log

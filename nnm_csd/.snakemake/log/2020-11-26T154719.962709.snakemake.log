@@ -1,0 +1,73 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	10	csd_nnm_3_0
+	11
+
+[Thu Nov 26 15:47:19 2020]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr31_190312_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr31_190312_nnm_3_0.png
+    jobid: 15
+    wildcards: name=cr31_190312
+
+[Thu Nov 26 15:47:19 2020]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr79_200211_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr79_200211_nnm_3_0.png
+    jobid: 18
+    wildcards: name=cr79_200211
+
+[Thu Nov 26 15:47:19 2020]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr50_190724_nnm_3_0.png
+    jobid: 17
+    wildcards: name=cr50_190724
+
+[Thu Nov 26 15:47:19 2020]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr33_190321_nnm_3_0.png
+    jobid: 16
+    wildcards: name=cr33_190321
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 37 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Job Missing files after 5 seconds:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr31_190312_nnm_3_0.png
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Job id: 15 completed successfully, but some output files are missing. 15
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 575, in handle_job_success
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 247, in handle_job_success
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 37 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Job Missing files after 5 seconds:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr33_190321_nnm_3_0.png
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Job id: 16 completed successfully, but some output files are missing. 16
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 575, in handle_job_success
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 247, in handle_job_success
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 37 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Job Missing files after 5 seconds:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr50_190724_nnm_3_0.png
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Job id: 17 completed successfully, but some output files are missing. 17
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 575, in handle_job_success
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 247, in handle_job_success
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 37 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Job Missing files after 5 seconds:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr79_200211_nnm_3_0.png
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Job id: 18 completed successfully, but some output files are missing. 18
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 575, in handle_job_success
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 247, in handle_job_success
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/log/2020-11-26T154719.962709.snakemake.log

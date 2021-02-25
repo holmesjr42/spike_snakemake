@@ -1,0 +1,68 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	5	nn_1_1_psth_lfp_plot
+	5	nn_3_1_psth_lfp_plot
+	11
+
+[Fri Nov  6 08:29:56 2020]
+rule nn_3_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr79_200211_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr79_200211_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_70_nn31_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_60_nn31_psth_lfp.png
+    jobid: 9
+    wildcards: name=cr79_200211
+
+[Fri Nov  6 08:29:56 2020]
+rule nn_3_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr50_190724_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr50_190724_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_70_nn31_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_60_nn31_psth_lfp.png
+    jobid: 8
+    wildcards: name=cr50_190724
+
+[Fri Nov  6 08:29:56 2020]
+rule nn_1_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr50_190724_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr50_190724_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr50_190724_70_nn11_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr50_190724_60_nn11_psth_lfp.png
+    jobid: 13
+    wildcards: name=cr50_190724
+
+[Fri Nov  6 08:29:56 2020]
+rule nn_1_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr79_200211_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr79_200211_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr79_200211_70_nn11_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr79_200211_60_nn11_psth_lfp.png
+    jobid: 14
+    wildcards: name=cr79_200211
+
+[Fri Nov  6 08:29:59 2020]
+Error in rule nn_3_1_psth_lfp_plot:
+    jobid: 8
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_70_nn31_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_60_nn31_psth_lfp.png
+
+RuleException:
+CalledProcessError in line 46 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/scripts/tmpj8gj5a_q.nn31_psth_lfp_plot.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/nn_analysis/Snakefile", line 46, in __rule_nn_3_1_psth_lfp_plot
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+[Fri Nov  6 08:29:59 2020]
+Error in rule nn_3_1_psth_lfp_plot:
+    jobid: 9
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_70_nn31_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_60_nn31_psth_lfp.png
+
+RuleException:
+CalledProcessError in line 46 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/scripts/tmp_gk3rzsd.nn31_psth_lfp_plot.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/nn_analysis/Snakefile", line 46, in __rule_nn_3_1_psth_lfp_plot
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+[Fri Nov  6 08:30:06 2020]
+Finished job 14.
+1 of 11 steps (9%) done
+[Fri Nov  6 08:30:06 2020]
+Finished job 13.
+2 of 11 steps (18%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/log/2020-11-06T082956.873157.snakemake.log

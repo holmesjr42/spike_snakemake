@@ -54,6 +54,10 @@ file_input = snakemake.input[0]
 # getting animal cr number
 animal = file_input.split('/')[-1].split('_')[0]
 
+# frequency profile: fpt/mfpt; fpl/mfpl
+fs = com.fps
+fl = com.fpl
+
 if not animal in ['cr31', 'cr33', 'cr50', 'cr79', 'cr90', 'cr94',
                   'all'
                   ]:
@@ -73,14 +77,14 @@ with h5py.File(file_input, 'r') as dat:
 
     if 'all' in animal:
         if '30' in list(datas['lfp'][c_s].keys()):
-            for i in ['tsp', 'lfp', 'fpt', 'fpl', 'scf', 'ssd', 'lcf', 'lsd']:
+            for i in ['tsp', 'lfp', fs, fl, 'scf', 'ssd', 'lcf', 'lsd']:
                 datas[i][c_s].pop('30')
 
         else:
             pass
 
         if '30' in list(datas['lfp'][c_n].keys()):
-            for i in ['tsp', 'lfp', 'fpt', 'fpl', 'scf', 'ssd', 'lcf', 'lsd']:
+            for i in ['tsp', 'lfp', fs, fl, 'scf', 'ssd', 'lcf', 'lsd']:
                 datas[i][c_n].pop('30')
         else:
             pass
@@ -92,16 +96,16 @@ with h5py.File(file_input, 'r') as dat:
     sk = [datas['tsp'][c_n], datas['tsp'][c_s], datas['tsp'][c_w]]  # spk
     lp = [datas['lfp'][c_n], datas['lfp'][c_s], datas['lfp'][c_w]]  # lfp
 
-    sa = [datas['fpt'][c_n], datas['fpt'][c_s],
-          datas['fpt'][c_w]]  # spk_mean
+    sa = [datas[fs][c_n], datas[fs][c_s],
+          datas[fs][c_w]]  # spk_mean
     sd = [datas['ssd'][c_n], datas['ssd'][c_s], datas['ssd'][c_w]]
     # spk_average_std
 
     sc = [datas['scf'][c_n], datas['scf'][c_s], datas['scf'][c_w]]
     # spk_average confidence
 
-    la = [datas['fpl'][c_n], datas['fpl'][c_s],
-          datas['fpl'][c_w]]  # lfp_mean
+    la = [datas[fl][c_n], datas[fl][c_s],
+          datas[fl][c_w]]  # lfp_mean
     ld = [datas['lsd'][c_n], datas['lsd'][c_s], datas['lsd'][c_w]]
     # lfp_average_std
 
@@ -762,134 +766,134 @@ plt.savefig(snakemake.output[3], dpi=300)
 plt.clf()
 
 # frequency profile: difference between control and notch conditions
-f3_fig = plt.figure(figsize=(16, 9), dpi=300)
-f3_fig.subplots_adjust(left=0.12, right=0.92, top=0.9, bottom=0.1)
-f3_axs = f3_fig.subplots(len(ch), 4, gridspec_kw=dict(wspace=0.15, hspace=0.2))
-
-f_m = []
-
-for j in lvp:
-    pi = lvl.index(j)
-    for i in range(len(ch)):
-        chs = ch[i]
-        tspc = g_s[j][2][chs]
-        tspn = g_n1[j][2][chs]
-        tsws = g_w1[j][2]
-
-        if not np.any(tsws):
-            tspw = np.zeros(25)
-        else:
-            tspw = tsws[chs]
-
-        # tspc1 = [1E-3 if i == 0 else i for i in tspc]
-        per = [(tspn - tspc) / tspc, (tspw - tspc) / tspc]
-
-        for ki in range(len(per)):
-            per[ki] = [np.nan if infs == np.inf else infs for infs in per[ki]]
-        f_m.append(per)
-
-# ymax = np.around(np.nanmax(f_m) * 1.3, decimals=1)
-# ymin = np.around(np.nanmin(f_m) * 1.3, decimals=1)
-
-
-# if ymin == 0:
-#     ymin = -0.5
-# if ymax == 0:
-#     ymax = 0.5
-
-
-for j in lvp:
-    pi = lvl.index(j)
-    for i in range(len(ch)):
-        chs = ch[i]
-        fa = f3_axs[i, pi]
-        tspc = g_s[j][2][chs]
-        tspn = g_n1[j][2][chs]
-        tsws = g_w1[j][2]
-
-        if not np.any(tsws):
-            tspw = np.zeros(25)
-
-        else:
-            tspw = tsws[chs]
-            pass
-
-        p_datn = (tspn - tspc) / tspc
-        p_datw = (tspw - tspc) / tspc
-        p_datn = [np.nan if infs == np.inf else infs for infs in p_datn]
-        p_datw = [np.nan if infs == np.inf else infs for infs in p_datw]
-
-        p_dat = [p_datn, p_datw]
-        lb = ['NN-Ctrl', 'WN-Ctrl']
-
-        for ti in range(len(p_dat)):
-            fa.plot(octs, p_dat[ti], label=lb[ti], lw=1, color=dcmap[
-                ti], linestyle=lst[ti])
-
-        fa.set_xticks([-1.5, -1., -0.5, 0, 0.5, 1., 1.5])
-        # fa.set_yticks([ymin, 0, ymax/2, ymax])
-        # fa.set_yticks(np.linspace(0, ym, 3, endpoint=True))
-        # fa.set_ylim(top=ymax, bottom=ymin)
-        fa.set_xlim(left=-1.5, right=1.5)
-        fa.tick_params(axis='both', which='major', labelsize=8, length=3,
-                       width=1)
-        fa.grid(True, alpha=0.6, lw=0.5)
-
-        for p in [-0.5, 0.5]:
-            fa.axvline(x=p, color='#363b50', linestyle='-.', lw=0.7)
-
-        # tick lable off
-        if i != len(ch) - 1:
-            fa.tick_params(labelbottom=False)
-
-        if j == lvp[0]:
-            fa.set_ylabel(depth[i] + r'$\mu$' + 'm' + '\n\n\n\n\n',
-                          fontsize=10)
-        else:
-            fa.legend().set_visible(False)
-        #     fa.tick_params(labelleft=False)
-
-        # legend box
-        if j == lvp[len(lvp) - 1] and i == 0:
-            fa.legend(prop={'size': 7},
-                      loc='lower right',
-                      bbox_to_anchor=(1, 0))
-        else:
-            pass
-
-        if i == 0:
-            fa.text(0.5, 1.5, f'{j} SPL dB',
-                    horizontalalignment='center',
-                    verticalalignment='center',
-                    # rotation='vertical',
-                    transform=fa.transAxes,
-                    fontdict={'weight': 'bold', 'size': 11}
-                    )
-        elif i == len(ch) - 1:
-            fa.text(0.5, -0.3, f'Octave',
-                    horizontalalignment='center',
-                    verticalalignment='center',
-                    # rotation='vertical',
-                    transform=fa.transAxes,
-                    fontdict={'weight': 'bold', 'size': 11}
-                    )
-
-f3_axs[1, 0].text(-0.4, -0.7, 'Depth\n\n\n\n\n\n'
-                  + r'$\Delta$' + 'Firing rate',
-                  horizontalalignment='center',
-                  verticalalignment='center',
-                  rotation='vertical',
-                  transform=f3_axs[1, 0].transAxes,
-                  fontdict={'weight': 'bold', 'size': 11}
-                  )
-for j in lv_off:
-    o_i = lvl.index(j)
-    for i in range(len(ch)):
-        f3_axs[i, o_i].set_axis_off()
-
-plt.savefig(snakemake.output[4], dpi=300)
-# plt.savefig('test4.png', dpi=300)
-plt.clf()
+# f3_fig = plt.figure(figsize=(16, 9), dpi=300)
+# f3_fig.subplots_adjust(left=0.12, right=0.92, top=0.9, bottom=0.1)
+# f3_axs = f3_fig.subplots(len(ch), 4, gridspec_kw=dict(wspace=0.15, hspace=0.2))
+#
+# f_m = []
+#
+# for j in lvp:
+#     pi = lvl.index(j)
+#     for i in range(len(ch)):
+#         chs = ch[i]
+#         tspc = g_s[j][2][chs]
+#         tspn = g_n1[j][2][chs]
+#         tsws = g_w1[j][2]
+#
+#         if not np.any(tsws):
+#             tspw = np.zeros(25)
+#         else:
+#             tspw = tsws[chs]
+#
+#         # tspc1 = [1E-3 if i == 0 else i for i in tspc]
+#         per = [(tspn - tspc) / tspc, (tspw - tspc) / tspc]
+#
+#         for ki in range(len(per)):
+#             per[ki] = [np.nan if infs == np.inf else infs for infs in per[ki]]
+#         f_m.append(per)
+#
+# # ymax = np.around(np.nanmax(f_m) * 1.3, decimals=1)
+# # ymin = np.around(np.nanmin(f_m) * 1.3, decimals=1)
+#
+#
+# # if ymin == 0:
+# #     ymin = -0.5
+# # if ymax == 0:
+# #     ymax = 0.5
+#
+#
+# for j in lvp:
+#     pi = lvl.index(j)
+#     for i in range(len(ch)):
+#         chs = ch[i]
+#         fa = f3_axs[i, pi]
+#         tspc = g_s[j][2][chs]
+#         tspn = g_n1[j][2][chs]
+#         tsws = g_w1[j][2]
+#
+#         if not np.any(tsws):
+#             tspw = np.zeros(25)
+#
+#         else:
+#             tspw = tsws[chs]
+#             pass
+#
+#         p_datn = (tspn - tspc) / tspc
+#         p_datw = (tspw - tspc) / tspc
+#         p_datn = [np.nan if infs == np.inf else infs for infs in p_datn]
+#         p_datw = [np.nan if infs == np.inf else infs for infs in p_datw]
+#
+#         p_dat = [p_datn, p_datw]
+#         lb = ['NN-Ctrl', 'WN-Ctrl']
+#
+#         for ti in range(len(p_dat)):
+#             fa.plot(octs, p_dat[ti], label=lb[ti], lw=1, color=dcmap[
+#                 ti], linestyle=lst[ti])
+#
+#         fa.set_xticks([-1.5, -1., -0.5, 0, 0.5, 1., 1.5])
+#         # fa.set_yticks([ymin, 0, ymax/2, ymax])
+#         # fa.set_yticks(np.linspace(0, ym, 3, endpoint=True))
+#         # fa.set_ylim(top=ymax, bottom=ymin)
+#         fa.set_xlim(left=-1.5, right=1.5)
+#         fa.tick_params(axis='both', which='major', labelsize=8, length=3,
+#                        width=1)
+#         fa.grid(True, alpha=0.6, lw=0.5)
+#
+#         for p in [-0.5, 0.5]:
+#             fa.axvline(x=p, color='#363b50', linestyle='-.', lw=0.7)
+#
+#         # tick lable off
+#         if i != len(ch) - 1:
+#             fa.tick_params(labelbottom=False)
+#
+#         if j == lvp[0]:
+#             fa.set_ylabel(depth[i] + r'$\mu$' + 'm' + '\n\n\n\n\n',
+#                           fontsize=10)
+#         else:
+#             fa.legend().set_visible(False)
+#         #     fa.tick_params(labelleft=False)
+#
+#         # legend box
+#         if j == lvp[len(lvp) - 1] and i == 0:
+#             fa.legend(prop={'size': 7},
+#                       loc='lower right',
+#                       bbox_to_anchor=(1, 0))
+#         else:
+#             pass
+#
+#         if i == 0:
+#             fa.text(0.5, 1.5, f'{j} SPL dB',
+#                     horizontalalignment='center',
+#                     verticalalignment='center',
+#                     # rotation='vertical',
+#                     transform=fa.transAxes,
+#                     fontdict={'weight': 'bold', 'size': 11}
+#                     )
+#         elif i == len(ch) - 1:
+#             fa.text(0.5, -0.3, f'Octave',
+#                     horizontalalignment='center',
+#                     verticalalignment='center',
+#                     # rotation='vertical',
+#                     transform=fa.transAxes,
+#                     fontdict={'weight': 'bold', 'size': 11}
+#                     )
+#
+# f3_axs[1, 0].text(-0.4, -0.7, 'Depth\n\n\n\n\n\n'
+#                   + r'$\Delta$' + 'Firing rate',
+#                   horizontalalignment='center',
+#                   verticalalignment='center',
+#                   rotation='vertical',
+#                   transform=f3_axs[1, 0].transAxes,
+#                   fontdict={'weight': 'bold', 'size': 11}
+#                   )
+# for j in lv_off:
+#     o_i = lvl.index(j)
+#     for i in range(len(ch)):
+#         f3_axs[i, o_i].set_axis_off()
+#
+# plt.savefig(snakemake.output[4], dpi=300)
+# # plt.savefig('test4.png', dpi=300)
+# plt.clf()
 
 # # frequency profile lfp: difference between control and notch conditions
 # f4_fig = plt.figure(figsize=(16, 9), dpi=300)

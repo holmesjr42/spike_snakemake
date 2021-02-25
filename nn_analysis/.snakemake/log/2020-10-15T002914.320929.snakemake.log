@@ -1,0 +1,13 @@
+Building DAG of jobs...
+MissingInputException in line 4 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Missing input files for rule all:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_60_nn31_csd_lfp_4.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr33_190321_60_nn31_csd_lfp_4.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr33_190321_60_nn31_csd_lfp_0_3.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_60_nn31_csd_lfp_0_3.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr87_201013_60_nn31_csd_lfp_0_3.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr31_190312_60_nn31_csd_lfp_4.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_60_nn31_csd_lfp_0_3.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr87_201013_60_nn31_csd_lfp_4.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr31_190312_60_nn31_csd_lfp_0_3.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_60_nn31_csd_lfp_4.png

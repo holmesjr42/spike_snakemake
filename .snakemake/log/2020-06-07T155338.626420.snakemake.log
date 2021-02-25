@@ -1,0 +1,59 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	5	nn_3_1_csd_plot
+	6
+
+[Sun Jun  7 15:53:38 2020]
+rule nn_3_1_csd_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr35_190403_nn_3_1_lfp_a.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr35_190403_nn31_csd_lfp_4.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr35_190403_nn31_csd_lfp_0_3.png
+    jobid: 8
+    wildcards: name=cr35_190403
+
+[Sun Jun  7 15:53:38 2020]
+rule nn_3_1_csd_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr79_200211_nn_3_1_lfp_a.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_nn31_csd_lfp_4.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_nn31_csd_lfp_0_3.png
+    jobid: 10
+    wildcards: name=cr79_200211
+
+[Sun Jun  7 15:53:38 2020]
+[Sun Jun  7 15:53:38 2020]
+Error in rule nn_3_1_csd_plot:
+Error in rule nn_3_1_csd_plot:
+    jobid: 8
+    jobid: 10
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr35_190403_nn31_csd_lfp_4.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr35_190403_nn31_csd_lfp_0_3.png
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_nn31_csd_lfp_4.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_nn31_csd_lfp_0_3.png
+
+
+RuleException:
+URLError in line 33 of /home/bhc/codes/spike_snakemake/Snakefile:
+<urlopen error [Errno 2] No such file or directory: '/home/bhc/codes/spike_snakemake/tcsd_plot.py'>
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 33, in __rule_nn_3_1_csd_plot
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 222, in urlopen
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 525, in open
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 543, in _open
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 503, in _call_chain
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 1453, in file_open
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 1492, in open_local_file
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+RuleException:
+URLError in line 33 of /home/bhc/codes/spike_snakemake/Snakefile:
+<urlopen error [Errno 2] No such file or directory: '/home/bhc/codes/spike_snakemake/tcsd_plot.py'>
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 33, in __rule_nn_3_1_csd_plot
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 222, in urlopen
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 525, in open
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 543, in _open
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 503, in _call_chain
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 1453, in file_open
+  File "/home/bhc/anaconda3/lib/python3.7/urllib/request.py", line 1492, in open_local_file
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/.snakemake/log/2020-06-07T155338.626420.snakemake.log

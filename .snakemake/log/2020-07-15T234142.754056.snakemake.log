@@ -1,0 +1,47 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	7	csd_nnm_3_0
+	8
+
+[Wed Jul 15 23:41:42 2020]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr33_190321.png
+    jobid: 11
+    wildcards: name=cr33_190321
+
+[Wed Jul 15 23:41:42 2020]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr50_190724.png
+    jobid: 13
+    wildcards: name=cr50_190724
+
+[Wed Jul 15 23:41:42 2020]
+[Wed Jul 15 23:41:42 2020]
+Error in rule csd_nnm_3_0:
+Error in rule csd_nnm_3_0:
+    jobid: 13
+    jobid: 11
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr50_190724.png
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/csd_cr33_190321.png
+
+
+RuleException:
+CalledProcessError in line 26 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmp07fois5g.nnm_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 26, in __rule_csd_nnm_3_0
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+RuleException:
+CalledProcessError in line 26 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmpwo4cfgqz.nnm_lfp_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 26, in __rule_csd_nnm_3_0
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/.snakemake/log/2020-07-15T234142.754056.snakemake.log

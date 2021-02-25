@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	csd_nnm_3_1
+	2
+
+[Tue Feb 16 15:34:10 2021]
+rule csd_nnm_3_1:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr30_190305_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr30_190305_nnm_3_1_off.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr30_190305_nnm_3_1_on.png
+    jobid: 24
+    wildcards: name=cr30_190305
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 78 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Job Missing files after 5 seconds:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr30_190305_nnm_3_1_on.png
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Job id: 24 completed successfully, but some output files are missing. 24
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 583, in handle_job_success
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 252, in handle_job_success
+Removing output files of failed job csd_nnm_3_1 since they might be corrupted:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr30_190305_nnm_3_1_off.png
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/log/2021-02-16T153410.624055.snakemake.log

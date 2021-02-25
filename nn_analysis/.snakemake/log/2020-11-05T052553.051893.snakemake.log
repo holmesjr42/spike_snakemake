@@ -1,0 +1,64 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	3	nn_1_1_psth_lfp_plot
+	5	nn_3_1_psth_lfp_plot
+	9
+
+[Thu Nov  5 05:25:53 2020]
+rule nn_1_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr31_190312_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr31_190312_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr31_190312_70_nn11_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr31_190312_60_nn11_psth_lfp.png
+    jobid: 21
+    wildcards: name=cr31_190312
+
+[Thu Nov  5 05:25:53 2020]
+rule nn_3_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr79_200211_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr79_200211_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_70_nn31_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_60_nn31_psth_lfp.png
+    jobid: 9
+    wildcards: name=cr79_200211
+
+[Thu Nov  5 05:25:53 2020]
+rule nn_3_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr31_190312_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr31_190312_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr31_190312_70_nn31_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr31_190312_60_nn31_psth_lfp.png
+    jobid: 6
+    wildcards: name=cr31_190312
+
+[Thu Nov  5 05:25:53 2020]
+rule nn_3_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr50_190724_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr50_190724_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_70_nn31_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_60_nn31_psth_lfp.png
+    jobid: 8
+    wildcards: name=cr50_190724
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 38 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Job completed successfully, but some output files are missing. Missing files after 5 seconds:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr31_190312_70_nn31_psth_lfp.png
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Removing output files of failed job nn_3_1_psth_lfp_plot since they might be corrupted:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr31_190312_60_nn31_psth_lfp.png
+[Thu Nov  5 05:26:03 2020]
+Finished job 21.
+1 of 9 steps (11%) done
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 38 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Job completed successfully, but some output files are missing. Missing files after 5 seconds:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_70_nn31_psth_lfp.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_60_nn31_psth_lfp.png
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 38 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Job completed successfully, but some output files are missing. Missing files after 5 seconds:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_70_nn31_psth_lfp.png
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_60_nn31_psth_lfp.png
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/log/2020-11-05T052553.051893.snakemake.log

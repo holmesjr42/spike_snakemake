@@ -1,0 +1,52 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	nn_1_1_psth_lfp_plot
+	1	nn_3_1_psth_lfp_plot
+	3
+
+[Thu Nov 12 08:28:42 2020]
+rule nn_3_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr92_201029_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr92_201029_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr92_201029_70_nn31_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr92_201029_60_nn31_psth_lfp.png
+    jobid: 12
+    wildcards: name=cr92_201029
+
+[Thu Nov 12 08:28:42 2020]
+rule nn_1_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr92_201029_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr92_201029_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr92_201029_70_nn11_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr92_201029_60_nn11_psth_lfp.png
+    jobid: 18
+    wildcards: name=cr92_201029
+
+[Thu Nov 12 08:28:48 2020]
+Error in rule nn_1_1_psth_lfp_plot:
+    jobid: 18
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr92_201029_70_nn11_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr92_201029_60_nn11_psth_lfp.png
+
+RuleException:
+CalledProcessError in line 83 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/scripts/tmp10pmml8b.nn11_psth_lfp_plot.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/nn_analysis/Snakefile", line 83, in __rule_nn_1_1_psth_lfp_plot
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Removing output files of failed job nn_1_1_psth_lfp_plot since they might be corrupted:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr92_201029_70_nn11_psth_lfp.png
+[Thu Nov 12 08:28:48 2020]
+Error in rule nn_3_1_psth_lfp_plot:
+    jobid: 12
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr92_201029_70_nn31_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr92_201029_60_nn31_psth_lfp.png
+
+RuleException:
+CalledProcessError in line 46 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/scripts/tmptdpv38b1.nn31_psth_lfp_plot.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/nn_analysis/Snakefile", line 46, in __rule_nn_3_1_psth_lfp_plot
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Removing output files of failed job nn_3_1_psth_lfp_plot since they might be corrupted:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr92_201029_70_nn31_psth_lfp.png
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/log/2020-11-12T082842.184240.snakemake.log

@@ -1,5 +1,6 @@
 import os
 import sys
+
 sys.path.insert(1, os.path.dirname(os.getcwd()))
 # print(os.path.realpath(pathlib.Path('__init__.py').parent))
 # print(os.getcwd())
@@ -44,15 +45,20 @@ hs = 0.05
 
 file_input = snakemake.input[0]
 # file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
-#              '/data/dataset/nnm_lfp_avg/cr79_200211_lfp_avg_nnm.hdf5'
-# file_input = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021' \
-#              '/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.pk'
+#              '/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.hdf5'
 
 # getting animal cr number
 animal = file_input.split('/')[-1].split('_')[0]
 # loading data
 with h5py.File(file_input, 'r') as dat:
     datas = dat
+
+    if 'cr' in animal:
+        if animal in ['cr92', 'cr93', 'cr98', 'cr101']:
+            plt.savefig(snakemake.output[0], dpi=300)
+            sys.exit()
+        else:
+            pass
 
     if 'cr' in animal:
         bf = bfs[animal]
@@ -66,7 +72,6 @@ with h5py.File(file_input, 'r') as dat:
         for i in lvl:
             lra = np.array(lr[0][i])  # lfp for nnm
             lrs = np.array(lr[1][i])  # lfp for strf
-
             la[i] = []
             ls[i] = []
             for j in range(len(lrs)):
@@ -75,30 +80,32 @@ with h5py.File(file_input, 'r') as dat:
 
         for lv in list(la.keys()):
             csds[lv] = []
-            lfps = np.array([la[lv], ls[lv]]) * pq.mV
+            lfps = np.array([la[lv], ls[lv]]) * pq.microvolt
             # print(la.keys())
             lfp_data1 = neo.core.AnalogSignal(lfps[0].T, sampling_rate=sr_lfp)
             lfp_data2 = neo.core.AnalogSignal(lfps[1].T, sampling_rate=sr_lfp)
             coord = np.arange(0, 1501, 100) * pq.micrometer
             sigma = 1 / (100 * pq.micrometer)
-
+            print('hey')
             std_input_nnm = {
                 'lfp': lfp_data1,
                 'coord_electrode': coord,
                 'sigma': sigma,
-                'f_type': 'rappel',
-                'f_order': 3,
+                'f_type': 'gaussian',
+                'f_order': (3, 1)
                 }
 
             std_input_strf = {
                 'lfp': lfp_data2,
                 'coord_electrode': coord,
                 'sigma': sigma,
-                'f_type': 'rappel',
-                'f_order': 3,
+                'f_type': 'gaussian',
+                'f_order': (3, 1)
                 }
 
             std1 = icsd.estimate_csd(**std_input_nnm)
+            print(std1[1].units, 'a')
+
             # rn_csd = np.transpose(std1[0] / std1[0].units) * std1[0].units
             fn_csd = np.transpose(std1[1] / std1[1].units) * std1[1].units
             # rn_csd.units = pq.mV / (pq.mm ** 2)
@@ -131,21 +138,23 @@ with h5py.File(file_input, 'r') as dat:
             la[lv] = {}
             ls[lv] = {}
             csds[lv] = {}
-            csds[lv] = [np.array(datas['csd']['nnm_3_0'][lv]) *
-                        pq.mV / (pq.mm ** 2),
-                        np.array(datas['csd']['nnm_3_0_strf'][lv]) *
-                        pq.mV / (pq.mm ** 2)]
-            la[lv] = np.array(datas['lfp']['nnm_3_0'][lv]) * pq.mV
-            ls[lv] = np.array(datas['lfp']['nnm_3_0_strf'][lv]) * pq.mV
+            csds[lv] = [
+                np.array(datas['csd']['nnm_3_0'][lv]),
+                        np.array(datas['csd']['nnm_3_0_strf'][lv])
+                        ]
+            la[lv] = np.array(datas['lfp']['nnm_3_0'][lv])
+            ls[lv] = np.array(datas['lfp']['nnm_3_0_strf'][lv])
 
 '''
 plot setup
 '''
+
+
 # 'inferno_r'
 
 def csd_plot(zz, ax, image, cmap=ccmap):
     zz = zz / zz.units
-    sig = zz * 10 ** (-3)
+    sig = zz
     t_ticks = np.linspace(0, 200, 9, endpoint=True)
     t_ticks2 = np.linspace(0, 200, 5, endpoint=True)
     img = ax.imshow(
@@ -154,7 +163,7 @@ def csd_plot(zz, ax, image, cmap=ccmap):
     # aspect: the number of elements in x-axis
     image.append(img)
     yticks = np.arange(0, 1501, 100)
-    yticks2 = np.array([0, 500, 800, 1100, 1400])
+    yticks2 = np.array([0, 400, 600, 800, 1000, 1200])
     ax.set_yticks(yticks2)
     ax.set_yticks(yticks, minor=True)
     ax.set_xticks(t_ticks, minor=True)
@@ -176,7 +185,7 @@ def csd_plot(zz, ax, image, cmap=ccmap):
 
 
 def cbar_t(cbar, type):
-    cbar.ax.tick_params(labelsize=7)
+    cbar.ax.tick_params(labelsize=9)
     if type == 'lfp':
         cbar.set_label(
             r'mV',
@@ -184,10 +193,7 @@ def cbar_t(cbar, type):
             )
 
     elif type == 'csd':
-        cbar.set_label(
-            r'$\times$10$^{-3}$' + ' ' + r'mV/$mm^{2}$',
-            labelpad=15, size=9
-            )
+        cbar.set_label(r'mV/$mm^{2}$', labelpad=15, size=9)
 
 
 '''
@@ -221,10 +227,12 @@ on_axes = c_fig.subplots(2, len(lvp), gridspec_kw=dict(left=0.05,
 
 for i in range(len(lvp)):
 
-    n_lfp = la[lvp[i]] * pq.mV
-    s_lfp = ls[lvp[i]] * pq.mV
-    n_csd = csds[lvp[i]][0]
-    s_csd = csds[lvp[i]][1]
+    n_lfp = la[lvp[i]] * pq.microvolt
+    n_lfp.units = pq.mV
+    s_lfp = ls[lvp[i]] * pq.microvolt
+    s_lfp.units = pq.mV
+    n_csd = csds[lvp[i]][0] * pq.mV / (pq.mm ** 2)
+    s_csd = csds[lvp[i]][1] * pq.mV / (pq.mm ** 2)
     ax_sl, axins_sl = csd_plot(zz=s_lfp, ax=st_axes[0, i], image=l_img)
     ax_sc, axins_sc = csd_plot(zz=s_csd, ax=st_axes[1, i], image=c_img)
     ax_nl, axins_nl = csd_plot(zz=n_lfp, ax=on_axes[0, i], image=l_img)
@@ -237,7 +245,7 @@ for i in range(len(lvp)):
 
     st_axes[0, i].set_title(f'{lvp[i]} dB SPL', pad=13,
                             fontdict={'weight': 'bold',
-                                      'size': 11
+                                      'size': 13
                                       })
 
     on_axes[1, i].set_xlabel('t (ms)', labelpad=10)
@@ -269,11 +277,33 @@ on_axes[0, 0].text(-0.8, 0, 'NN\nContinuous',
                    fontdict={'weight': 'bold', 'size': 11}
                    )
 
+names = ['LFP', 'CSD']
+for i in range(2):
+
+    st_axes[i, len(lvp) - 1].text(2, 0.5, names[i],
+                                  horizontalalignment='center',
+                                  verticalalignment='center',
+                                  # rotation='vertical',
+                                  transform=st_axes[i, len(lvp) - 1].transAxes,
+                                  fontdict={'weight': 'bold', 'size': 11}
+                                  )
+
+    on_axes[i, len(lvp) - 1].text(2, 0.5, names[i],
+                                  horizontalalignment='center',
+                                  verticalalignment='center',
+                                  # rotation='vertical',
+                                  transform=on_axes[i, len(lvp) - 1].transAxes,
+                                  fontdict={'weight': 'bold', 'size': 11}
+                                  )
+
 
 def norm_color(img, type, ratio=0.8):
     if type == 'lfp':
-        vmin = min(ims.get_array().min() for ims in img) * ratio
-        vmax = max(ims.get_array().max() for ims in img) * ratio
+        # vmin = min(ims.get_array().min() for ims in img) * ratio
+        # vmax = max(ims.get_array().max() for ims in img) * ratio
+        vmax = max(max(ims.get_array().max() for ims in img), np.abs(min(
+            ims.get_array().min() for ims in img))) * ratio
+        vmin = (-1) * vmax
         norm = colors.Normalize(vmin=vmin, vmax=vmax)
     elif type == 'csd':
         vmax = max(max(ims.get_array().max() for ims in img), np.abs(min(

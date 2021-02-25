@@ -1,0 +1,94 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	7	lfp_average_for_csd
+	8
+
+[Wed Jul  8 20:35:27 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr33_190321_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.pk
+    jobid: 4
+    wildcards: name=cr33_190321
+
+[Wed Jul  8 20:35:27 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr35_190403_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr35_190403_lfp_avg_nnm.pk
+    jobid: 5
+    wildcards: name=cr35_190403
+
+[Wed Jul  8 20:35:27 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr50_190724_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk
+    jobid: 6
+    wildcards: name=cr50_190724
+
+[Wed Jul  8 20:38:14 2020]
+Finished job 5.
+1 of 8 steps (12%) done
+
+[Wed Jul  8 20:38:14 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr79_200211_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr79_200211_lfp_avg_nnm.pk
+    jobid: 7
+    wildcards: name=cr79_200211
+
+[Wed Jul  8 20:38:31 2020]
+Finished job 4.
+2 of 8 steps (25%) done
+
+[Wed Jul  8 20:38:31 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr31_190312_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr31_190312_lfp_avg_nnm.pk
+    jobid: 3
+    wildcards: name=cr31_190312
+
+[Wed Jul  8 20:38:50 2020]
+Finished job 6.
+3 of 8 steps (38%) done
+
+[Wed Jul  8 20:38:50 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr30_190305_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr30_190305_lfp_avg_nnm.pk
+    jobid: 2
+    wildcards: name=cr30_190305
+
+[Wed Jul  8 20:39:35 2020]
+Finished job 2.
+4 of 8 steps (50%) done
+
+[Wed Jul  8 20:39:35 2020]
+rule lfp_average_for_csd:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr29_190228_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr29_190228_lfp_avg_nnm.pk
+    jobid: 1
+    wildcards: name=cr29_190228
+
+[Wed Jul  8 20:40:57 2020]
+Finished job 3.
+5 of 8 steps (62%) done
+[Wed Jul  8 20:41:01 2020]
+Finished job 7.
+6 of 8 steps (75%) done
+[Wed Jul  8 20:41:55 2020]
+Finished job 1.
+7 of 8 steps (88%) done
+
+[Wed Jul  8 20:41:55 2020]
+localrule all:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr29_190228_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr30_190305_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr31_190312_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr33_190321_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr35_190403_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr50_190724_lfp_avg_nnm.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr79_200211_lfp_avg_nnm.pk
+    jobid: 0
+
+[Wed Jul  8 20:41:55 2020]
+Finished job 0.
+8 of 8 steps (100%) done
+Complete log: /home/bhc/codes/spike_snakemake/.snakemake/log/2020-07-08T203527.825170.snakemake.log

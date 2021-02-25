@@ -1,0 +1,3 @@
+CreateRuleException in line 57 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+The name nn_1_1_psth_plot is already used by another rule
+  File "/home/bhc/codes/spike_snakemake/nn_analysis/Snakefile", line 57, in <module>

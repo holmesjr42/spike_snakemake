@@ -1,0 +1,120 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	4	csd_nnm_3_0
+	5	csd_nnm_3_1
+	10
+
+[Tue Feb 23 16:48:17 2021]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr96_201119_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr96_201119_nnm_3_0.png
+    jobid: 26
+    wildcards: name=cr96_201119
+
+[Tue Feb 23 16:48:17 2021]
+rule csd_nnm_3_1:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr30_190305_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr30_190305_nnm_3_1_off.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr30_190305_nnm_3_1_on.png
+    jobid: 31
+    wildcards: name=cr30_190305
+
+[Tue Feb 23 16:48:17 2021]
+rule csd_nnm_3_1:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr96_201119_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr96_201119_nnm_3_1_off.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr96_201119_nnm_3_1_on.png
+    jobid: 39
+    wildcards: name=cr96_201119
+
+[Tue Feb 23 16:48:17 2021]
+rule csd_nnm_3_1:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr97_201201_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr97_201201_nnm_3_1_off.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr97_201201_nnm_3_1_on.png
+    jobid: 40
+    wildcards: name=cr97_201201
+
+[Tue Feb 23 16:48:19 2021]
+Finished job 31.
+1 of 10 steps (10%) done
+
+[Tue Feb 23 16:48:19 2021]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr30_190305_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr30_190305_nnm_3_0.png
+    jobid: 18
+    wildcards: name=cr30_190305
+
+[Tue Feb 23 16:48:19 2021]
+Finished job 40.
+2 of 10 steps (20%) done
+
+[Tue Feb 23 16:48:19 2021]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_csd_nnm_3_0.png
+    jobid: 29
+    wildcards: name=csd
+
+[Tue Feb 23 16:48:19 2021]
+Finished job 39.
+3 of 10 steps (30%) done
+
+[Tue Feb 23 16:48:19 2021]
+rule csd_nnm_3_1:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/csd_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_csd_nnm_3_1_off.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_csd_nnm_3_1_on.png
+    jobid: 42
+    wildcards: name=csd
+
+[Tue Feb 23 16:48:23 2021]
+Finished job 26.
+4 of 10 steps (40%) done
+
+[Tue Feb 23 16:48:23 2021]
+rule csd_nnm_3_0:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr101_201211_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr101_201211_nnm_3_0.png
+    jobid: 28
+    wildcards: name=cr101_201211
+
+[Tue Feb 23 16:48:24 2021]
+Finished job 18.
+5 of 10 steps (50%) done
+
+[Tue Feb 23 16:48:24 2021]
+rule csd_nnm_3_1:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nnm_lfp_avg/cr101_201211_lfp_avg_nnm.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr101_201211_nnm_3_1_off.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_1/csd_cr101_201211_nnm_3_1_on.png
+    jobid: 41
+    wildcards: name=cr101_201211
+
+[Tue Feb 23 16:48:24 2021]
+Finished job 29.
+6 of 10 steps (60%) done
+[Tue Feb 23 16:48:24 2021]
+Error in rule csd_nnm_3_0:
+    jobid: 28
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nnm_csd/nnm_3_0/csd_cr101_201211_nnm_3_0.png
+
+RuleException:
+CalledProcessError in line 51 of /home/bhc/codes/spike_snakemake/nnm_csd/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/scripts/tmpao85gcn4.csd_nnm_3_0.py' returned non-zero exit status 1.
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2319, in run_wrapper
+  File "/home/bhc/codes/spike_snakemake/nnm_csd/Snakefile", line 51, in __rule_csd_nnm_3_0
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/home/bhc/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2350, in run_wrapper
+[Tue Feb 23 16:48:25 2021]
+Finished job 41.
+7 of 10 steps (70%) done
+[Tue Feb 23 16:48:26 2021]
+Finished job 42.
+8 of 10 steps (80%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nnm_csd/.snakemake/log/2021-02-23T164817.651056.snakemake.log

@@ -187,7 +187,7 @@ def cbar_t(cbar, type):
 
     elif type == 'csd':
         cbar.set_label(
-            r'$\times$10$^{-3}$' + ' ' + r'mV/$mm^{2}$',
+            r'$\times$10$^{3}$' + ' ' + r'mV/$mm^{2}$',
             labelpad=15, size=9
             )
 
@@ -275,8 +275,11 @@ on_axes[0, 0].text(-0.8, 0, 'NN\nContinuous',
 
 def norm_color(img, type, ratio=0.7):
     if type == 'lfp':
-        vmin = min(ims.get_array().min() for ims in img) * ratio
-        vmax = max(ims.get_array().max() for ims in img) * ratio
+        # vmin = min(ims.get_array().min() for ims in img) * ratio
+        # vmax = max(ims.get_array().max() for ims in img) * ratio
+        vmax = max(max(ims.get_array().max() for ims in img), np.abs(min(
+            ims.get_array().min() for ims in img))) * ratio
+        vmin = (-1) * vmax
         norm = colors.Normalize(vmin=vmin, vmax=vmax)
     elif type == 'csd':
         vmax = max(max(ims.get_array().max() for ims in img), np.abs(min(

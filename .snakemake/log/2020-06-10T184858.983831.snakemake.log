@@ -1,0 +1,71 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	5	nn_1_1_csd_plot
+	5	nn_1_1_lfp_plot
+	5	nn_3_1_csd_plot
+	5	nn_3_1_lfp_plot
+	21
+
+[Wed Jun 10 18:48:59 2020]
+rule nn_3_1_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr50_190724_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr50_190724_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr50_190724_nn31_psth_lfp.png
+    jobid: 4
+    wildcards: name=cr50_190724
+
+[Wed Jun 10 18:48:59 2020]
+rule nn_1_1_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr50_190724_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr50_190724_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr50_190724_nn11_psth_lfp.png
+    jobid: 14
+    wildcards: name=cr50_190724
+
+[Wed Jun 10 18:49:04 2020]
+Finished job 4.
+1 of 21 steps (5%) done
+
+[Wed Jun 10 18:49:04 2020]
+rule nn_3_1_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr79_200211_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr79_200211_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr79_200211_nn31_psth_lfp.png
+    jobid: 5
+    wildcards: name=cr79_200211
+
+[Wed Jun 10 18:49:04 2020]
+Finished job 14.
+2 of 21 steps (10%) done
+
+[Wed Jun 10 18:49:04 2020]
+rule nn_1_1_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr79_200211_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr79_200211_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr79_200211_nn11_psth_lfp.png
+    jobid: 15
+    wildcards: name=cr79_200211
+
+[Wed Jun 10 18:49:09 2020]
+Finished job 5.
+3 of 21 steps (14%) done
+
+[Wed Jun 10 18:49:09 2020]
+rule nn_3_1_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr35_190403_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr35_190403_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_3_1/cr35_190403_nn31_psth_lfp.png
+    jobid: 3
+    wildcards: name=cr35_190403
+
+[Wed Jun 10 18:49:09 2020]
+Finished job 15.
+4 of 21 steps (19%) done
+
+[Wed Jun 10 18:49:09 2020]
+rule nn_1_1_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr35_190403_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr35_190403_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr35_190403_nn11_psth_lfp.png
+    jobid: 13
+    wildcards: name=cr35_190403
+

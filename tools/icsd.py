@@ -381,9 +381,9 @@ class CSD(object):
         elif self.f_type == 'identity':
             num = np.array([1.])
             denom = np.array([1.])
-        elif self.f_type == 'rappel':
-            num = np.array([0.23, 0.54, 0.23])
-            denom = np.array([num.sum()])
+        # elif self.f_type == 'rappel':
+        #     num = np.array([0.23, 0.54, 0.23])
+        #     denom = np.array([num.sum()])
         else:
             print('%s Wrong filter type!' % self.f_type)
             raise

@@ -1,0 +1,62 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	nn_1_1_csd_plot
+	2	nn_1_1_csd_plot_60
+	2	nn_1_1_psth_lfp_plot
+	7
+
+[Fri Nov 27 06:57:02 2020]
+rule nn_1_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr95_201117_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr95_201117_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr95_201117_70_nn11_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr95_201117_60_nn11_psth_lfp.png
+    jobid: 45
+    wildcards: name=cr95_201117
+
+[Fri Nov 27 06:57:02 2020]
+rule nn_1_1_csd_plot_60:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr94_201112_nn_lfp_a.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr94_201112_60_nn11_csd_lfp_2.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr94_201112_60_nn11_csd_lfp_0_1.png
+    jobid: 62
+    wildcards: name=cr94_201112
+
+[Fri Nov 27 06:57:02 2020]
+rule nn_1_1_psth_lfp_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr94_201112_nn_lfp_a.pk, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/tsp/cr94_201112_tsp.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr94_201112_70_nn11_psth_lfp.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr94_201112_60_nn11_psth_lfp.png
+    jobid: 44
+    wildcards: name=cr94_201112
+
+[Fri Nov 27 06:57:02 2020]
+rule nn_1_1_csd_plot:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr94_201112_nn_lfp_a.pk
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr94_201112_70_nn11_csd_lfp_2.png, /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr94_201112_70_nn11_csd_lfp_0_1.png
+    jobid: 53
+    wildcards: name=cr94_201112
+
+[Fri Nov 27 06:57:11 2020]
+Finished job 53.
+1 of 7 steps (14%) done
+[Fri Nov 27 06:57:11 2020]
+Finished job 62.
+2 of 7 steps (29%) done
+[Fri Nov 27 06:57:12 2020]
+Finished job 44.
+3 of 7 steps (43%) done
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 76 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+Job Missing files after 5 seconds:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr95_201117_70_nn11_psth_lfp.png
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Job id: 45 completed successfully, but some output files are missing. 45
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 575, in handle_job_success
+  File "/home/bhc/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 247, in handle_job_success
+Removing output files of failed job nn_1_1_psth_lfp_plot since they might be corrupted:
+/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/image/nn_1_1/cr95_201117_60_nn11_psth_lfp.png
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/nn_analysis/.snakemake/log/2020-11-27T065702.018448.snakemake.log

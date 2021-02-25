@@ -3,7 +3,7 @@ import pickle
 import matplotlib.pyplot as plt
 from matplotlib import colors
 from matplotlib import ticker
-import parameters as pm
+from parameters import parameters as pm
 
 # matplotlib.use('Agg')
 
@@ -18,7 +18,6 @@ dat = pm.Datas
 nnmt = dat.nnm_t
 nnml = dat.nnm_l
 nnmf = dat.nnm_f
-nnmlf = dat.nnm_lf
 
 # some adjustments for plots: channels you are going to use, wspace, hspace,
 # colormap, min and max values for heatmap

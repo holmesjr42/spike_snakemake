@@ -1,0 +1,48 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	5	nn_3_1_lfp_plot
+	5	nn_3_1_lfp_session
+	11
+
+[Sat May 30 01:19:20 2020]
+rule nn_3_1_lfp_session:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr50_190724_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr50_190724_nn_3_1_lfp_a.pk
+    jobid: 9
+    wildcards: name=cr50_190724
+
+[Sat May 30 01:19:20 2020]
+rule nn_3_1_lfp_session:
+    input: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/lfp_fil/cr33_190321_lfp_fil.hdf5
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr33_190321_nn_3_1_lfp_a.pk
+    jobid: 7
+    wildcards: name=cr33_190321
+
+[Sat May 30 01:19:21 2020]
+Error in rule nn_3_1_lfp_session:
+    jobid: 9
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr50_190724_nn_3_1_lfp_a.pk
+
+RuleException:
+CalledProcessError in line 13 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmpa3uff1pi.nn_lfp_s_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 13, in __rule_nn_3_1_lfp_session
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+[Sat May 30 01:19:22 2020]
+Error in rule nn_3_1_lfp_session:
+    jobid: 7
+    output: /home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/dataset/nn_lfp_avg/cr33_190321_nn_3_1_lfp_a.pk
+
+RuleException:
+CalledProcessError in line 13 of /home/bhc/codes/spike_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/bhc/anaconda3/bin/python3.7 /home/bhc/codes/spike_snakemake/.snakemake/scripts/tmpnl2bnj5m.nn_lfp_s_session_average.py' returned non-zero exit status 1.
+  File "/home/bhc/codes/spike_snakemake/Snakefile", line 13, in __rule_nn_3_1_lfp_session
+  File "/home/bhc/anaconda3/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/bhc/codes/spike_snakemake/.snakemake/log/2020-05-30T011920.739546.snakemake.log

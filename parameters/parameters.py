@@ -19,8 +19,13 @@ class Commonfeat:
     f_path = file_path
 
     # animal/data folder name
-    animals = ['cr29_190228', 'cr30_190305', 'cr31_190312', 'cr33_190321',
-               'cr50_190724', 'cr79_200211']
+    animals = [
+        'cr29_190228', 'cr30_190305', 'cr31_190312', 'cr33_190321',
+        'cr50_190724', 'cr79_200211', 'cr90_201023', 'cr92_201023',
+        'cr93_201110', 'cr94_201112', 'cr95_201117', 'cr96_201119',
+        'cr97_201201', 'cr98_201203', 'cr101_201211', 'cr102_201214',
+        'cr103_201215'
+        ]
 
     p_info = np.load(param_path + 'time_index_multi_tones_500ms_180s.npy',
                      allow_pickle=True)
@@ -31,12 +36,23 @@ class Commonfeat:
          0.87, 1, 1.12, 1.25, 1.37, 1.5])
 
     # best f for each animal
-    bf = [6727, 9514, 8724, 5657, 2828, 7336, 8000]
+    bf = [
+        6727, 9514, 8724, 5657, 7336, 8000,
+        2594, 20749, 1834, 8724, 8000, 2378,
+        8000, 5657, 16000, 16000, 6727
+        ]
     # best f dict
-    bf_dic = {'cr29': 6727, 'cr30': 9514, 'cr31': 8724, 'cr33': 5657,
-              'cr35': 2828, 'cr50': 7336, 'cr79': 8000}
-    # activity time window for each animal
-    tw = [[12, 46], [10, 41], [10, 41], [10, 41], [10, 38], [10, 31], [10, 41]]
+    bf_dic = {
+        'cr29': 6727, 'cr30': 9514, 'cr31': 8724, 'cr33': 5657,
+        'cr50': 7336, 'cr79': 8000, 'cr90': 2594, 'cr92': 20749,
+        'cr93': 1834, 'cr94': 8724, 'cr95': 8000, 'cr96': 2378,
+        'cr97': 8000, 'cr98': 5657, 'cr101': 16000, 'cr102': 16000,
+        'cr103': 6727
+        }
+    fps = 'mfpt'  # which frequency profile you are going to use: fpt/mfpt
+    fpl = 'mfpl'  # which frequency profile you are going to use: fpl/mfpl
+    # # activity time window for each animal
+    # tw = [[12, 46], [10, 41], [10, 41], [10, 41], [10, 38], [10, 31], [10, 41]]
 
 
 """
@@ -46,14 +62,15 @@ continuous nn
 
 class Nnmcontfeat:
     # conditions
-    conds = ['nnm_3_0', 'nnm_3_0_05', 'nnm_lef', 'nnm_hef']
+    conds = ['nnm_3_0']
+    # conds = ['nnm_3_0', 'nnm_3_0_05', 'nnm_lef', 'nnm_hef']
 
     # condition dict
     lists = {
-        'nnm_3_0': ['nnm_3_0', 'nnm_3_0_strf'],
-        'nnm_3_0_05': ['nnm_3_0_05', 'nnm_3_0_05_strf'],
-        'nnm_lef': ['nnm_lef', 'nnm_lef_strf'],
-        'nnm_hef': ['nnm_hef', 'nnm_hef_strf']
+        'nnm_3_0': ['nnm_3_0', 'nnm_3_0_strf']
+        # 'nnm_3_0_05': ['nnm_3_0_05', 'nnm_3_0_05_strf']
+        # 'nnm_lef': ['nnm_lef', 'nnm_lef_strf'],
+        # 'nnm_hef': ['nnm_hef', 'nnm_hef_strf']
         }
 
 
@@ -100,16 +117,18 @@ class Datas:
 
 class Setup:
     def __init__(self, mode=0, yl=0.1, cond=None, cond2=None,
-                 nb=5, ch=None, ws=0.1, hs=0.15, ccmap=None, ratio=0.7,
+                 nb=5, ch=None, ws=0.1, hs=0.2, ccmap=None, ratio=0.7,
                  dm=None):
 
         if ch is None:
             ch = np.array([4, 6, 8, 10, 12])
         if ccmap is None:
             ccmap = ListedColormap(sns.color_palette("mako", 256))
+        elif ccmap == 'lfp':
+            ccmap = ListedColormap(sns.color_palette("icefire", 256))
             # "vlag" "icefire"
         elif ccmap == 'csd':
-            ccmap = ListedColormap(sns.color_palette("mako_r", 256))
+            ccmap = ListedColormap(sns.color_palette("icefire_r", 256))
 
         self.mode = mode
         self.yl = yl

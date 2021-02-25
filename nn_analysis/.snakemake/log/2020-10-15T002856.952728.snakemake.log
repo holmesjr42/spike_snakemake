@@ -1,0 +1,3 @@
+NameError in line 7 of /home/bhc/codes/spike_snakemake/nn_analysis/Snakefile:
+name 'DB' is not defined
+  File "/home/bhc/codes/spike_snakemake/nn_analysis/Snakefile", line 7, in <module>

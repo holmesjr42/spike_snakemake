@@ -133,7 +133,7 @@ for k in range(len(lvl)):
     g = []
     h = []
     for j in range(16):
-       g.append(stats.wilcoxon(g_sln[i][j], g_nl0[i][j]))
+       g.append(stats.wilcoxon(g_wl0[i][j], g_nl0[i][j]))
        # if not np.any(g_sfw[i][j]):
        #     h.append(np.ones(16, 2))
        # else:
